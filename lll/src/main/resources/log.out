@@ -1,0 +1,48 @@
+2016-03-04 10:59:52 INFO  ContextLoader:285 - Root WebApplicationContext: initialization started
+2016-03-04 10:59:52 INFO  XmlWebApplicationContext:510 - Refreshing Root WebApplicationContext: startup date [Fri Mar 04 10:59:52 IST 2016]; root of context hierarchy
+2016-03-04 10:59:52 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-servlet.xml]
+2016-03-04 10:59:53 INFO  AutowiredAnnotationBeanPostProcessor:153 - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-03-04 10:59:53 INFO  DriverManagerDataSource:133 - Loaded JDBC driver: com.mysql.jdbc.Driver
+2016-03-04 10:59:53 INFO  LocalContainerEntityManagerFactoryBean:339 - Building JPA container EntityManagerFactory for persistence unit 'my-app'
+2016-03-04 10:59:54 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: my-app
+	...]
+2016-03-04 10:59:54 INFO  Version:37 - HHH000412: Hibernate Core {5.1.0.Final}
+2016-03-04 10:59:54 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2016-03-04 10:59:54 INFO  Environment:317 - HHH000021: Bytecode provider name : javassist
+2016-03-04 10:59:54 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-03-04 10:59:55 INFO  Dialect:156 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2016-03-04 10:59:56 INFO  QueryTranslatorFactoryInitiator:47 - HHH000397: Using ASTQueryTranslatorFactory
+2016-03-04 10:59:57 INFO  RequestMappingHandlerMapping:217 - Mapped "{[/person/update],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public com.myapp.rest.MyAppResp com.myapp.controller.PersonController.mergePerson(com.myapp.model.Person)
+2016-03-04 10:59:57 INFO  RequestMappingHandlerMapping:217 - Mapped "{[/person/{id}],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public com.myapp.rest.MyAppResp com.myapp.controller.PersonController.getPersonById(int)
+2016-03-04 10:59:57 INFO  RequestMappingHandlerMapping:217 - Mapped "{[/person/create],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public com.myapp.rest.MyAppResp com.myapp.controller.PersonController.createPerson(com.myapp.model.Person)
+2016-03-04 10:59:57 INFO  RequestMappingHandlerMapping:217 - Mapped "{[/person/delete/{id}],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public com.myapp.rest.MyAppResp com.myapp.controller.PersonController.deletePerson(int)
+2016-03-04 10:59:57 INFO  RequestMappingHandlerMapping:217 - Mapped "{[/person/all],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public com.myapp.rest.MyAppResp com.myapp.controller.PersonController.getAllPersonDetails()
+2016-03-04 10:59:58 INFO  RequestMappingHandlerAdapter:517 - Looking for @ControllerAdvice: Root WebApplicationContext: startup date [Fri Mar 04 10:59:52 IST 2016]; root of context hierarchy
+2016-03-04 10:59:58 INFO  RequestMappingHandlerAdapter:517 - Looking for @ControllerAdvice: Root WebApplicationContext: startup date [Fri Mar 04 10:59:52 IST 2016]; root of context hierarchy
+2016-03-04 10:59:58 INFO  ContextLoader:325 - Root WebApplicationContext: initialization completed in 6203 ms
+2016-03-04 10:59:58 INFO  DispatcherServlet:484 - FrameworkServlet 'spring': initialization started
+2016-03-04 10:59:58 INFO  XmlWebApplicationContext:510 - Refreshing WebApplicationContext for namespace 'spring-servlet': startup date [Fri Mar 04 10:59:58 IST 2016]; parent: Root WebApplicationContext
+2016-03-04 10:59:58 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-servlet.xml]
+2016-03-04 10:59:58 INFO  AutowiredAnnotationBeanPostProcessor:153 - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-03-04 10:59:58 INFO  DriverManagerDataSource:133 - Loaded JDBC driver: com.mysql.jdbc.Driver
+2016-03-04 10:59:58 INFO  LocalContainerEntityManagerFactoryBean:339 - Building JPA container EntityManagerFactory for persistence unit 'my-app'
+2016-03-04 10:59:58 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: my-app
+	...]
+2016-03-04 10:59:58 INFO  Dialect:156 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2016-03-04 10:59:58 INFO  QueryTranslatorFactoryInitiator:47 - HHH000397: Using ASTQueryTranslatorFactory
+2016-03-04 10:59:58 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (my-app) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2016-03-04 10:59:58 INFO  RequestMappingHandlerMapping:217 - Mapped "{[/person/update],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public com.myapp.rest.MyAppResp com.myapp.controller.PersonController.mergePerson(com.myapp.model.Person)
+2016-03-04 10:59:58 INFO  RequestMappingHandlerMapping:217 - Mapped "{[/person/{id}],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public com.myapp.rest.MyAppResp com.myapp.controller.PersonController.getPersonById(int)
+2016-03-04 10:59:58 INFO  RequestMappingHandlerMapping:217 - Mapped "{[/person/create],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public com.myapp.rest.MyAppResp com.myapp.controller.PersonController.createPerson(com.myapp.model.Person)
+2016-03-04 10:59:58 INFO  RequestMappingHandlerMapping:217 - Mapped "{[/person/delete/{id}],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public com.myapp.rest.MyAppResp com.myapp.controller.PersonController.deletePerson(int)
+2016-03-04 10:59:58 INFO  RequestMappingHandlerMapping:217 - Mapped "{[/person/all],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public com.myapp.rest.MyAppResp com.myapp.controller.PersonController.getAllPersonDetails()
+2016-03-04 10:59:58 INFO  RequestMappingHandlerAdapter:517 - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Fri Mar 04 10:59:58 IST 2016]; parent: Root WebApplicationContext
+2016-03-04 10:59:58 INFO  RequestMappingHandlerAdapter:517 - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Fri Mar 04 10:59:58 IST 2016]; parent: Root WebApplicationContext
+2016-03-04 10:59:58 INFO  DispatcherServlet:503 - FrameworkServlet 'spring': initialization completed in 336 ms
+2016-03-04 11:00:34 INFO  PersonController:50 - {"resp":[{"id":1,"lastAccessed":1457029800000,"name":"Satish"},{"id":2,"lastAccessed":1457029800000,"name":"Avinash"},{"id":4,"lastAccessed":1457068901000,"name":"sharaty"},{"id":5,"lastAccessed":null,"name":"sharat"},{"id":6,"lastAccessed":null,"name":"sharat"},{"id":7,"lastAccessed":1457068297000,"name":"sharat"}],"code":200,"message":"GOT_ALL_PERSONS"}
+2016-03-04 11:02:14 INFO  PersonController:75 - {"resp":{"id":2,"lastAccessed":1457029800000,"name":"Avinash"},"code":200,"message":"PERSON_FOUND"}
+2016-03-04 11:03:10 INFO  PersonController:148 - {"resp":null,"code":200,"message":"PERSON_DELETED"}
+2016-03-04 11:04:18 INFO  PersonController:125 - {"resp":null,"code":200,"message":"PERSON_UPDATED"}
+2016-03-04 11:04:24 INFO  PersonController:125 - {"resp":null,"code":200,"message":"PERSON_UPDATED"}

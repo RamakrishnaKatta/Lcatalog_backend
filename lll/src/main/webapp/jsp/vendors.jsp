@@ -15,7 +15,7 @@
     <div class="content-wrapper" >
         <section class="content">
         
-        <!-- ADD SOCIETIES MODAL -->
+        <!-- ADD VENDOR MODAL -->
            <div class="modal fade bs-example-modal-lg" id="myModal" >
                <div class="modal-dialog modal-lg">
                   <div class="modal-content">
@@ -24,12 +24,12 @@
                         <h4 class="modal-title"><b class="headerText">Add Vendor</b></h4>
                      </div>
                      <div class="modal-body">
-                        
+                        <form role="form" id="data"  method="post" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-md-12">
                             <div class="form-group">
-                            <label for="name">Name :</label>
-                            <input type="text" class="form-control" id="licenceType">
+                            <label for="name">Id :</label>
+                            <input type="text" class="form-control" name="id" id="id">
                             </div>
                             </div>
                          </div>
@@ -37,7 +37,7 @@
                             <div class="col-md-12">
                             <div class="form-group">
                             <label for="name">Name :</label>
-                            <input type="text" class="form-control" id="name">
+                            <input type="text" class="form-control"  name="name" id="name">
                             </div>
                             </div>
                          </div>
@@ -45,31 +45,35 @@
                             <div class="col-md-12">
                             <div class="form-group">
                             <label for="name">Type :</label>
-                            <input type="text" class="form-control" id="type">
+                            <input type="text" class="form-control"  name="type" id="type">
                             </div>
                             </div>
                          </div>
-                         <div class="row">
-                            <div class="col-md-12">
-                            <div class="form-group">
-                            <label for="name">Location :</label>
-                            <input type="text" class="form-control" id="location">
-                            </div>
-                            </div>
-                         </div>
+<!--                          <div class="row"> -->
+<!--                             <div class="col-md-12"> -->
+<!--                             <div class="form-group"> -->
+<!--                             <label for="name">Location :</label> -->
+<!--                             <input type="text" class="form-control" name="type" id="type"> -->
+<!--                             </div> -->
+<!--                             </div> -->
+<!--                          </div> -->
                          <div class="row">
                             <div class="col-md-12">
                             <div class="form-group">
                             <label for="name">Logo :</label>
-                            <input type="file" class="form-control" id="logo">
+                            <input type="file" class="form-control" name="logo" id="logo"></input>
                             </div>
                             </div>
                          </div>
-                             
+                         <input type="submit" class="btn btn-primary float-right" value="Upload File">
+                         </input>
+                         </form>
+                           
                      </div>
                      <div class="modal-footer">
-                        <div type="button" class="btn btn-sm btn-info add">Add</div>
-                        <div type="button" class="btn btn-sm btn-info edit">Edit</div>
+                       
+<!--                         <div type="button" class="btn btn-sm btn-info add">Add</div> -->
+<!--                         <div type="button" class="btn btn-sm btn-info edit">Edit</div> -->
                      </div>
                   </div>
                </div></div>
@@ -87,7 +91,6 @@
                           </div>
                       </div><!-- /.box-header -->
                       <div class="box-body">
-                         <form id="create_role_form" name="create_role_form">
                          
                            <div class="row">
                               <div class="col-md-4">
@@ -113,9 +116,8 @@
                              
                            </div> 
                             <div class="form-group float-right" style="margin-right: 14px;">
-                            <input type="submit" class="btn btn-info" id="deleteSubmit" value="Search"/>
+                            <div class="btn btn-info" id="deleteSubmit" value="Search"/> 
                             </div>
-                        </form>
                       </div><!-- /.box-body -->
               </div><!-- /.box -->
           </div>

@@ -2,6 +2,40 @@ $(document).ready(function(){
    loadVendors();
 })
 
+$("form#data").submit(function() {
+            var formData = new FormData($(this)[0]);
+            uploadFile(formData);
+            $("#data")[0].reset();
+            console.log(formData);
+            //$("#uploadFile").modal("hide");
+            
+ });
+
+function uploadFile(formData) {
+    showLoader();
+    $.ajax({
+        url: "url",
+        type: 'POST',
+        data: formData,
+        async: false,
+        success: function(data) {
+            hideLoader();
+            if (data.code == 0) {
+                alert("Learning material uploaded succesfully");
+            } else {
+                alert("Some error occurred while uploading material. Please try again");
+            }
+        },
+        cache: false,
+        contentType: false,
+        processData: false
+    });
+}
+
+
+
+
+
 function loadVendors(){
 	showLoader(); 
     $.ajax({

@@ -9,6 +9,7 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org
 	<class>com.lll.model.VendorDetail</class>
 	<class>com.lll.model.ArticleDetail</class>
 	<class>com.lll.model.UserDetail</class>
+	<class>com.lll.model.VendorRequest</class>
   
   </persistence-unit>
 </persistence>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 04, 2017 at 06:15 AM
+-- Generation Time: Apr 08, 2017 at 11:22 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -44,7 +44,7 @@ CREATE TABLE `article_details` (
 --
 
 INSERT INTO `article_details` (`id`, `name`, `category`, `sub-category`, `description`, `price`, `image`, `discount`, `vendor_id`, `uploaded_user_id`) VALUES
-(1, 'sofa', '1', '2', 'sofa desc', '20', NULL, '20', 1, 2);
+(1, 'sofa', '1', '2', 'sofa desc', '20', NULL, '20', 100000, 2);
 
 -- --------------------------------------------------------
 

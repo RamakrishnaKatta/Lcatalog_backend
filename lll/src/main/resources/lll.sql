@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 08, 2017 at 11:22 AM
+-- Generation Time: Apr 09, 2017 at 05:16 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -44,7 +44,8 @@ CREATE TABLE `article_details` (
 --
 
 INSERT INTO `article_details` (`id`, `name`, `category`, `sub-category`, `description`, `price`, `image`, `discount`, `vendor_id`, `uploaded_user_id`) VALUES
-(1, 'sofa', '1', '2', 'sofa desc', '20', NULL, '20', 100000, 2);
+(1, 'sofa', '1', '2', 'sofa desc', '20', NULL, '20', 100000, 2),
+(2, 'table', '2', '3', 'testing table', '300', NULL, '30', 100000, 100005);
 
 -- --------------------------------------------------------
 
@@ -60,7 +61,7 @@ CREATE TABLE `user_details` (
   `email` varchar(30) DEFAULT NULL,
   `address` varchar(30) DEFAULT NULL,
   `mobile_no` varchar(20) DEFAULT NULL,
-  `password` varchar(20) DEFAULT NULL,
+  `password` varchar(200) DEFAULT NULL,
   `created_time` timestamp NULL DEFAULT NULL,
   `is_otp_verified` varchar(5) DEFAULT NULL,
   `other_details` varchar(50) DEFAULT NULL,
@@ -72,10 +73,11 @@ CREATE TABLE `user_details` (
 --
 
 INSERT INTO `user_details` (`id`, `name`, `type`, `otp_no`, `email`, `address`, `mobile_no`, `password`, `created_time`, `is_otp_verified`, `other_details`, `vendor_id`) VALUES
-(100001, 'Avinash', 'ADMIN', NULL, '0', '0', '0', '0', '2017-04-02 05:19:11', NULL, NULL, 100000),
-(100002, 'Satish', 'CUSTOMER', NULL, '0', '0', '0', '0', '2017-04-02 05:20:12', NULL, NULL, 100000),
-(100003, 'Ravi', 'CUSTOMER', NULL, '0', '0', '0', '0', '2017-04-02 05:21:38', NULL, NULL, 100000),
-(100004, 'TEST', 'CUSTOMER', NULL, 'satish@gmail.com', 'xxx', '787898978787', 'xxx', '2017-04-04 02:23:26', NULL, 'xxxxx', 100000);
+(100001, 'Avinash', 'ADMIN', NULL, '0', '0', '12334', '0', '2017-04-02 05:19:11', NULL, NULL, 100000),
+(100002, 'Satish', 'CUSTOMER', NULL, '0', '0', '345', '0', '2017-04-02 05:20:12', NULL, NULL, 100000),
+(100003, 'Ravi', 'CUSTOMER', NULL, '0', '0', '235', '0', '2017-04-02 05:21:38', NULL, NULL, 100000),
+(100004, 'TEST', 'CUSTOMER', NULL, 'satish@gmail.com', 'xxx', '787898978787', 'xxx', '2017-04-04 02:23:26', NULL, 'xxxxx', 100000),
+(100005, 'alisha', 'CUSTOMER', NULL, 'alisha@gmail.com', 'xxx', '8553577356', '5f4dcc3b5aa765d61d8327deb882cf99', '2017-04-09 14:31:16', NULL, 'xxxxx', 100000);
 
 -- --------------------------------------------------------
 
@@ -142,6 +144,7 @@ ALTER TABLE `article_details`
 --
 ALTER TABLE `user_details`
   ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `mobile_no` (`mobile_no`),
   ADD KEY `vendorId` (`vendor_id`);
 
 --
@@ -164,7 +167,7 @@ ALTER TABLE `vendor_request`
 -- AUTO_INCREMENT for table `article_details`
 --
 ALTER TABLE `article_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `vendor_request`
 --

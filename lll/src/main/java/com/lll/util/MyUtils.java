@@ -2,6 +2,7 @@ package com.lll.util;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.security.MessageDigest;
 import java.util.Random;
 
 import org.apache.http.HttpResponse;
@@ -59,4 +60,18 @@ public class MyUtils {
 		/*Gson gson=new Gson();
 		return gson.toJson(rd);*/
 	}
+	
+	public static String getEncodedPassword(String password) throws Exception {
+
+		MessageDigest md = MessageDigest.getInstance("MD5");
+		md.update(password.getBytes());
+		byte[] digest = md.digest();
+		StringBuffer sb = new StringBuffer();
+		for (byte b : digest) {
+			sb.append(String.format("%02x", b & 0xff));
+		}
+		//System.out.println("digested(hex):" + sb.toString());
+		return sb.toString();
+	}
+
 }

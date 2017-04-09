@@ -14,9 +14,11 @@ import com.lll.model.UserDetail;
 import com.lll.model.VendorDetail;
 import com.lll.repo.UserRepo;
 import com.lll.repo.VendorRepo;
+import com.lll.rest.LoginRequest;
 import com.lll.rest.Request;
 import com.lll.rest.Response;
 import com.lll.rest.ResponseCodes;
+import com.lll.util.MyUtils;
 
 @RestController
 @RequestMapping("web/user")
@@ -66,7 +68,7 @@ public class UserController {
 					 userdetail.setId(vendorDetail.getId()+1);
 					 userdetail.setCreatedTime(new Timestamp(System.currentTimeMillis()));
 					 //boolean b=sendOtp();
-					//boolean b=sendMail();
+					 //boolean b=sendMail();
 					 userRepo.save(userdetail);	
 					 //resp.setResp(userRepo.findAll());
 					 resp.setMessage(ResponseCodes.SUCCESS_MSG);
@@ -78,6 +80,7 @@ public class UserController {
 				if(lastUser!=null){
 					userdetail.setId(lastUser.getId()+1);
 					userdetail.setCreatedTime(new Timestamp(System.currentTimeMillis()));
+					userdetail.setPassword(MyUtils.getEncodedPassword(request.getRequest().getPassword()));
 					userRepo.save(userdetail);
 					resp.setResp(null);
 					resp.setMessage(ResponseCodes.SUCCESS_MSG);
@@ -85,6 +88,31 @@ public class UserController {
 				}
 			}
 			
+		} catch (Exception e) {
+			e.printStackTrace();
+			resp.setResp(e.getMessage());
+			resp.setMessage(ResponseCodes.FAILURE_MSG);
+			resp.setCode(ResponseCodes.FAILURE);
+		}
+		return resp;
+	}
+	
+	@RequestMapping(value="login",method=RequestMethod.POST)
+	public Response userLogin(@RequestBody Request<LoginRequest> req){
+		try {
+			UserDetail userdetail=userRepo.checkLogin(req.getRequest().getMobileNo(), MyUtils.getEncodedPassword(req.getRequest().getPassword()));
+		    
+			if(userdetail!=null){
+				userdetail.setPassword(null);
+				resp.setResp(userdetail);
+				resp.setMessage(ResponseCodes.SUCCESS_MSG);
+				resp.setCode(ResponseCodes.SUCCESS);
+			}else{
+				resp.setResp("No details Found");
+				resp.setMessage(ResponseCodes.FAILURE_MSG);
+				resp.setCode(ResponseCodes.FAILURE);
+			}
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			resp.setResp(e.getMessage());

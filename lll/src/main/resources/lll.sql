@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 09, 2017 at 05:16 PM
+-- Generation Time: Apr 13, 2017 at 06:04 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -77,7 +77,7 @@ INSERT INTO `user_details` (`id`, `name`, `type`, `otp_no`, `email`, `address`, 
 (100002, 'Satish', 'CUSTOMER', NULL, '0', '0', '345', '0', '2017-04-02 05:20:12', NULL, NULL, 100000),
 (100003, 'Ravi', 'CUSTOMER', NULL, '0', '0', '235', '0', '2017-04-02 05:21:38', NULL, NULL, 100000),
 (100004, 'TEST', 'CUSTOMER', NULL, 'satish@gmail.com', 'xxx', '787898978787', 'xxx', '2017-04-04 02:23:26', NULL, 'xxxxx', 100000),
-(100005, 'alisha', 'CUSTOMER', NULL, 'alisha@gmail.com', 'xxx', '8553577356', '5f4dcc3b5aa765d61d8327deb882cf99', '2017-04-09 14:31:16', NULL, 'xxxxx', 100000);
+(100005, 'alisha', 'CUSTOMER', NULL, 'xxx@gmail.com', 'xxx', '8553577356', '5f4dcc3b5aa765d61d8327deb882cf99', '2017-04-09 14:31:16', NULL, 'xxxxx', 100000);
 
 -- --------------------------------------------------------
 

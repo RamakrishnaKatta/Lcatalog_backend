@@ -100,7 +100,7 @@ public class UserController {
 	@RequestMapping(value="login",method=RequestMethod.POST)
 	public Response userLogin(@RequestBody Request<LoginRequest> req){
 		try {
-			UserDetail userdetail=userRepo.checkLogin(req.getRequest().getMobileNo(), MyUtils.getEncodedPassword(req.getRequest().getPassword()));
+			UserDetail userdetail=userRepo.checkLogin(req.getRequest().getEmail(), MyUtils.getEncodedPassword(req.getRequest().getPassword()));
 		    
 			if(userdetail!=null){
 				userdetail.setPassword(null);

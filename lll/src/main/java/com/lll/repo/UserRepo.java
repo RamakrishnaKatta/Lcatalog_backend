@@ -14,7 +14,7 @@ public interface UserRepo extends JpaRepository<UserDetail, Integer>{
 	@Query(value="SELECT * FROM `user_details` WHERE `vendor_id`=?1 ORDER BY `id` DESC LIMIT 0,1", nativeQuery=true)
 	UserDetail getUserBySeqNo(Integer vendorId);
 	
-	@Query(value="SELECT * FROM `user_details` WHERE `mobile_no`=?1 and `password`=?2", nativeQuery=true)
+	@Query(value="SELECT * FROM `user_details` WHERE `email`=?1 and `password`=?2", nativeQuery=true)
 	UserDetail checkLogin(String mobileNo,String password);
 	
 }

@@ -23,8 +23,23 @@ public class ArticleController {
 	@Autowired
 	private ArticleRepo articleRepo;
 	
+	@RequestMapping(value="all",method=RequestMethod.GET)
+	public Response getAllArticles(){
+		try {
+		    resp.setResp(articleRepo.findAll());
+			resp.setMessage(ResponseCodes.SUCCESS_MSG);
+			resp.setCode(ResponseCodes.SUCCESS);
+		} catch (Exception e) {
+			e.printStackTrace();
+			resp.setResp(e.getMessage());
+			resp.setMessage(ResponseCodes.FAILURE_MSG);
+			resp.setCode(ResponseCodes.FAILURE);
+		}
+		return resp;
+	}
+	
 	@RequestMapping(value="by",method=RequestMethod.GET)
-	public Response getAllVendors(@RequestParam("vendorId") int vendorId){
+	public Response getAllArticlesByVendorId(@RequestParam("vendorId") int vendorId){
 		try {
 		    resp.setResp(articleRepo.getArticledetailByVendorId(vendorId));
 			resp.setMessage(ResponseCodes.SUCCESS_MSG);

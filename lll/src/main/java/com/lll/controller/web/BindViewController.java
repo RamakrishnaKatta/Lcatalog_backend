@@ -37,5 +37,8 @@ public class BindViewController {
 		  return new ModelAndView("articles");
 	  }
 	  
-	 
+	  @RequestMapping(value="vendorReqs",method=RequestMethod.GET)
+	  public ModelAndView getvendorReqs(){
+		  return new ModelAndView("vendorRequests");
+	  }
 }

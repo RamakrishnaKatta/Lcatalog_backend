@@ -18,7 +18,10 @@ var Urls={
 		GET_ALL_USERS:"web/user/all",
 			
 	    //USERS
-		GET_ALL_ARTICLES:"web/article/all"
+		GET_ALL_ARTICLES:"web/article/all",
+		
+		//GET ALL VENDORS REQUEST
+		GET_ALL_VENDORS_REQ:"app/vendor/getVendorRequests"
 }
 
 function getApi(name){

@@ -1,15 +1,27 @@
 $(document).ready(function(){
-   loadUsers();
+   loadVendors();
 })
 
-function loadUsers(){
+$("form#data").submit(function() {
+            var formData = new FormData($(this)[0]);
+            uploadFile(formData);
+            $("#data")[0].reset();
+            console.log(formData);
+            //$("#uploadFile").modal("hide");
+            
+ });
+
+
+
+
+function loadVendors(){
 	showLoader(); 
     $.ajax({
         type: "GET",
         async:false,
         contentType: 'application/json; charset=utf-8',
         dataType: 'json',
-        url: getApi(Urls.GET_ALL_USERS),
+        url: getApi(Urls.GET_ALL_VENDORS_REQ),
     })
     .done(function(response){
     hideLoader();
@@ -23,28 +35,31 @@ function loadUsers(){
              {
                  "sTitle": "Id",
                  "mData": "id",
-                 "visible":false
+                 "visible":true
              },{
-                 "sTitle": "Name",
-                 "mData": "name"
+                 "sTitle": "Company Name",
+                 "mData": "companyName"
              },{
-                 "sTitle": "Role",
-                 "mData": "type"
+                 "sTitle": "Contact Person Name",
+                 "mData": "contactPersonName"
              },{
-                 "sTitle": "Email-Id",
+                 "sTitle": "Email",
                  "mData": "email"
              },{
-                 "sTitle": "Mobile No",
-                 "mData": "mobileNo"
-             },{
                  "sTitle": "Address",
-                 "mData": "address"
+                 "mData": "loc"
              },{
-                 "sTitle": "Vendor-Id",
-                 "mData": "vendorId"
+                 "sTitle": "Mobile-No",
+                 "mData": "mobile"
              },{
-                 "sTitle": "Other details",
-                 "mData": "otherDetails"
+                 "sTitle": "Pin",
+                 "mData": "pin"
+             },{
+                 "sTitle": "state",
+                 "mData": "state"
+             },{
+                 "sTitle": "No-of-Models",
+                 "mData": "totModels"
              },{
                      "sTitle": "Action",
                      "mData": "id",

@@ -59,6 +59,21 @@ public class AppController {
 		}
 		return resp;
 	}
+	
+	@RequestMapping(value="getVendorRequests",method=RequestMethod.GET)
+	public Response getVendorRequest(){
+		try {
+			resp.setResp(vendorReqRepo.findAll());
+			resp.setMessage(ResponseCodes.SUCCESS_MSG);
+			resp.setCode(ResponseCodes.SUCCESS);
+		} catch (Exception e) {
+			e.printStackTrace();
+			resp.setResp(e.getMessage());
+			resp.setMessage(ResponseCodes.FAILURE_MSG);
+			resp.setCode(ResponseCodes.FAILURE);
+		}
+		return resp;
+	}
 
 	
 }

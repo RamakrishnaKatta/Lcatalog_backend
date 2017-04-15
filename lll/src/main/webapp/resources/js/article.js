@@ -28,14 +28,32 @@ function loadUsers(){
                  "sTitle": "Name",
                  "mData": "name"
              },{
+                 "sTitle": "category",
+                 "mData": "category"
+             },{
+                 "sTitle": "sub-category",
+                 "mData": "sub_category"
+             },{
+                 "sTitle": "title",
+                 "mData": "title"
+             },{
+                 "sTitle": "Description",
+                 "mData": "description"
+             },{
                  "sTitle": "Price",
                  "mData": "price"
+             },{
+                 "sTitle": "Quantity",
+                 "mData": "quantity"
+             },{
+                 "sTitle": "Dimensions",
+                 "mData": "dimensions"
              },{
                  "sTitle": "Discount",
                  "mData": "discount"
              },{
-                 "sTitle": "Description",
-                 "mData": "description"
+                 "sTitle": "VendorId",
+                 "mData": "vendorId"
              },{
                      "sTitle": "Action",
                      "mData": "id",

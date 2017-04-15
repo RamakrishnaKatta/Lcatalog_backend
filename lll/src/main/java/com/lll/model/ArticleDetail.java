@@ -22,16 +22,24 @@ public class ArticleDetail implements Serializable {
 
 	private String description;
 
-	private String discount;
+	private String dimensions;
 
-	private String image;
+	private String discount;
 
 	private String name;
 
+	private String object;
+
+	private String pattern;
+
 	private String price;
+
+	private String quantity;
 
 	@Column(name="`sub-category`")
 	private String sub_category;
+
+	private String title;
 
 	@Column(name="uploaded_user_id")
 	private int uploadedUserId;
@@ -66,20 +74,20 @@ public class ArticleDetail implements Serializable {
 		this.description = description;
 	}
 
+	public String getDimensions() {
+		return this.dimensions;
+	}
+
+	public void setDimensions(String dimensions) {
+		this.dimensions = dimensions;
+	}
+
 	public String getDiscount() {
 		return this.discount;
 	}
 
 	public void setDiscount(String discount) {
 		this.discount = discount;
-	}
-
-	public String getImage() {
-		return this.image;
-	}
-
-	public void setImage(String image) {
-		this.image = image;
 	}
 
 	public String getName() {
@@ -90,6 +98,22 @@ public class ArticleDetail implements Serializable {
 		this.name = name;
 	}
 
+	public String getObject() {
+		return this.object;
+	}
+
+	public void setObject(String object) {
+		this.object = object;
+	}
+
+	public String getPattern() {
+		return this.pattern;
+	}
+
+	public void setPattern(String pattern) {
+		this.pattern = pattern;
+	}
+
 	public String getPrice() {
 		return this.price;
 	}
@@ -98,12 +122,28 @@ public class ArticleDetail implements Serializable {
 		this.price = price;
 	}
 
+	public String getQuantity() {
+		return this.quantity;
+	}
+
+	public void setQuantity(String quantity) {
+		this.quantity = quantity;
+	}
+
 	public String getSub_category() {
 		return this.sub_category;
 	}
 
 	public void setSub_category(String sub_category) {
 		this.sub_category = sub_category;
+	}
+
+	public String getTitle() {
+		return this.title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public int getUploadedUserId() {

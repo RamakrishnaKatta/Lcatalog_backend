@@ -70,6 +70,21 @@
       
       <li class="treeview">
         <a href="#">
+          <i class="glyphicon glyphicon-plus"></i>
+          <span>Vendor Requests</span>
+        </a>
+         <ul class="treeview-menu">
+            <li>
+              <a href="${host}/vendorReqs">
+                <i class="glyphicon glyphicon-record"></i>
+                Requests
+              </a>
+            </li>
+        </ul> 
+      </li>
+      
+      <li class="treeview">
+        <a href="http://lucidleanlabs.com">
           <i class="glyphicon glyphicon-question-sign"></i>
           <span>About Us</span>
         </a>

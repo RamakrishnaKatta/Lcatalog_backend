@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 13, 2017 at 06:04 AM
+-- Generation Time: Apr 15, 2017 at 04:51 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -32,9 +32,13 @@ CREATE TABLE `article_details` (
   `category` varchar(20) DEFAULT NULL,
   `sub-category` varchar(20) DEFAULT NULL,
   `description` varchar(50) DEFAULT NULL,
+  `title` varchar(20) DEFAULT NULL,
+  `dimensions` varchar(80) DEFAULT NULL,
   `price` varchar(20) DEFAULT NULL,
-  `image` varchar(25) DEFAULT NULL,
+  `object` varchar(25) DEFAULT NULL,
+  `pattern` varchar(30) DEFAULT NULL,
   `discount` varchar(15) DEFAULT NULL,
+  `quantity` varchar(20) DEFAULT NULL,
   `vendor_id` int(11) DEFAULT NULL,
   `uploaded_user_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -43,9 +47,9 @@ CREATE TABLE `article_details` (
 -- Dumping data for table `article_details`
 --
 
-INSERT INTO `article_details` (`id`, `name`, `category`, `sub-category`, `description`, `price`, `image`, `discount`, `vendor_id`, `uploaded_user_id`) VALUES
-(1, 'sofa', '1', '2', 'sofa desc', '20', NULL, '20', 100000, 2),
-(2, 'table', '2', '3', 'testing table', '300', NULL, '30', 100000, 100005);
+INSERT INTO `article_details` (`id`, `name`, `category`, `sub-category`, `description`, `title`, `dimensions`, `price`, `object`, `pattern`, `discount`, `quantity`, `vendor_id`, `uploaded_user_id`) VALUES
+(1, 'sofa', '1', '2', 'sofa desc', 'Sofa Title', '{"width":20,"height":30,"length":40}', '20.00', NULL, NULL, '20', '4', 100000, 2),
+(2, 'table', '2', '3', 'testing table', 'Chair title', '{"width":20,"height":30,"length":40}', '300', NULL, NULL, '30', '8', 100000, 100005);
 
 -- --------------------------------------------------------
 

@@ -57,7 +57,7 @@ function loadVendors(){
              {
                  "sTitle": "Id",
                  "mData": "id",
-                 "visible":false
+                 "visible":true
              },{
                  "sTitle": "Name",
                  "mData": "name"

@@ -14,13 +14,14 @@ $("form#data").submit(function() {
 function uploadFile(formData) {
     showLoader();
     $.ajax({
-        url: "url",
+        url: "http://localhost:8080/lll/web/vendor/vendor_reg",
         type: 'POST',
         data: formData,
         async: false,
         success: function(data) {
             hideLoader();
-            if (data.code == 0) {
+            console.log(data);
+            if (data.code == 200) {
                 alert("Learning material uploaded succesfully");
             } else {
                 alert("Some error occurred while uploading material. Please try again");

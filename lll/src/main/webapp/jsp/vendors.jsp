@@ -61,7 +61,7 @@
                             <div class="col-md-12">
                             <div class="form-group">
                             <label for="name">Logo :</label>
-                            <input type="file" class="form-control" name="logo" id="logo"></input>
+                            <input type="file"  name="file" id="file">
                             </div>
                             </div>
                          </div>

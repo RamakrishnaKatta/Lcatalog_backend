@@ -1,6 +1,45 @@
 $(document).ready(function(){
    loadUsers();
+   loadVendorsDropDown();
 })
+
+
+$("form#data").submit(function() {
+            var formData = new FormData($(this)[0]);
+            uploadFile(formData);
+            $("#data")[0].reset();
+            console.log(formData);
+            $("#myModal").modal("hide");
+            return false; 
+ });
+
+
+function uploadFile(formData) {
+    showLoader();
+    $.ajax({
+        url: getApi(Urls.ADD_ARTICLE),
+        type: 'POST',
+        data: formData,
+        async: false,
+        success: function(data) {
+            hideLoader();
+            console.log(data);
+            if (data.code == 200) {
+                alert("Uploaded succesfully");
+                location.reload();
+            } else {
+                alert("Some error occurred while uploading material. Please try again");
+            }
+        },
+        error: function ( xhr, status, error) {
+        	location.reload();
+        },
+        cache: false,
+        contentType: false,
+        processData: false
+    });
+}
+
 
 function loadUsers(){
 	showLoader(); 

@@ -21,7 +21,16 @@ var Urls={
 		GET_ALL_ARTICLES:"web/article/all",
 		
 		//GET ALL VENDORS REQUEST
-		GET_ALL_VENDORS_REQ:"app/vendor/getVendorRequests"
+		GET_ALL_VENDORS_REQ:"app/vendor/getVendorRequests",
+		
+		//ADD VENDOR
+		ADD_VENDOR:"web/vendor/vendor_reg",
+		
+		//ADD ARTICLE
+		ADD_ARTICLE:"web/article/add_article",
+		
+		//GET VENDOR NAMES
+		GET_VENDOR_ID:""
 }
 
 function getApi(name){
@@ -44,5 +53,60 @@ function hideLoader() {
     $(".fader").hide();
     $(".loader").hide();
 }
+
+function loadVendorsDropDown(){
+	showLoader(); 
+    $.ajax({
+        type: "GET",
+        async:false,
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        url: getApi(Urls.GET_ALL_VENDORS),
+    })
+    .done(function(response){
+    hideLoader();
+    console.log(response);
+    if(response.code==200){
+        var options="<option value=null selected='selected'>--Select Vendor Id--</option>";
+        for(var i=0;i<(response.resp).length;i++){
+        var option="<option value='"+response.resp[i].id+"'>"+response.resp[i].name+"</option>";
+        options=options+option;
+        }
+        $("#vendorId").append(options);
+    }
+    })
+}
+
+
+$("#vendorId").change(function(){
+	
+ 	var vendorId=$("#vendorId").val();
+    $("#uploadedUserId").val(vendorId+1);
+//	
+//	showLoader(); 
+//    $.ajax({
+//        type: "GET",
+//        async:false,
+//        contentType: 'application/json; charset=utf-8',
+//        dataType: 'json',
+//        url: getApi(Urls.GET_ALL_USERS),
+//    })
+//    .done(function(response){
+//    hideLoader();
+//    console.log(response);
+//    if(response.code==200){
+//        var options="<option value=null selected='selected'>--Select Uploaded User Id--</option>";
+//        for(var i=0;i<(response.resp).length;i++){
+//        var option="<option value='"+response.resp[i].id+"'>"+response.resp[i].name+"</option>";
+//        options=options+option;
+//        }
+//        $("#uploadedUserId").append(options);
+//    }else{
+//    	alert("No Admin found for this vendor");
+//    }
+//    })
+	
+	
+})
 
 

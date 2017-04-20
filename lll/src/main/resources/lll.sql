@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 15, 2017 at 04:51 AM
+-- Generation Time: Apr 20, 2017 at 03:49 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -33,6 +33,7 @@ CREATE TABLE `article_details` (
   `sub-category` varchar(20) DEFAULT NULL,
   `description` varchar(50) DEFAULT NULL,
   `title` varchar(20) DEFAULT NULL,
+  `img` varchar(70) DEFAULT NULL,
   `dimensions` varchar(80) DEFAULT NULL,
   `price` varchar(20) DEFAULT NULL,
   `object` varchar(25) DEFAULT NULL,
@@ -42,14 +43,6 @@ CREATE TABLE `article_details` (
   `vendor_id` int(11) DEFAULT NULL,
   `uploaded_user_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `article_details`
---
-
-INSERT INTO `article_details` (`id`, `name`, `category`, `sub-category`, `description`, `title`, `dimensions`, `price`, `object`, `pattern`, `discount`, `quantity`, `vendor_id`, `uploaded_user_id`) VALUES
-(1, 'sofa', '1', '2', 'sofa desc', 'Sofa Title', '{"width":20,"height":30,"length":40}', '20.00', NULL, NULL, '20', '4', 100000, 2),
-(2, 'table', '2', '3', 'testing table', 'Chair title', '{"width":20,"height":30,"length":40}', '300', NULL, NULL, '30', '8', 100000, 100005);
 
 -- --------------------------------------------------------
 
@@ -72,17 +65,6 @@ CREATE TABLE `user_details` (
   `vendor_id` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `user_details`
---
-
-INSERT INTO `user_details` (`id`, `name`, `type`, `otp_no`, `email`, `address`, `mobile_no`, `password`, `created_time`, `is_otp_verified`, `other_details`, `vendor_id`) VALUES
-(100001, 'Avinash', 'ADMIN', NULL, '0', '0', '12334', '0', '2017-04-02 05:19:11', NULL, NULL, 100000),
-(100002, 'Satish', 'CUSTOMER', NULL, '0', '0', '345', '0', '2017-04-02 05:20:12', NULL, NULL, 100000),
-(100003, 'Ravi', 'CUSTOMER', NULL, '0', '0', '235', '0', '2017-04-02 05:21:38', NULL, NULL, 100000),
-(100004, 'TEST', 'CUSTOMER', NULL, 'satish@gmail.com', 'xxx', '787898978787', 'xxx', '2017-04-04 02:23:26', NULL, 'xxxxx', 100000),
-(100005, 'alisha', 'CUSTOMER', NULL, 'xxx@gmail.com', 'xxx', '8553577356', '5f4dcc3b5aa765d61d8327deb882cf99', '2017-04-09 14:31:16', NULL, 'xxxxx', 100000);
-
 -- --------------------------------------------------------
 
 --
@@ -94,17 +76,9 @@ CREATE TABLE `vendor_details` (
   `name` varchar(30) DEFAULT NULL,
   `type` varchar(20) DEFAULT NULL,
   `location` varchar(30) DEFAULT NULL,
-  `logo` varchar(20) DEFAULT NULL,
+  `logo` varchar(100) DEFAULT NULL,
   `other_details` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `vendor_details`
---
-
-INSERT INTO `vendor_details` (`id`, `name`, `type`, `location`, `logo`, `other_details`) VALUES
-(100000, 'SHOPPER-STOP', 'HIGH', 'JAYANAGAR', NULL, 'Other details of shopper stop'),
-(200000, 'HOME-STOP', 'LOW', 'INDIRANAGAR', NULL, 'Other details of Home stop');
 
 -- --------------------------------------------------------
 
@@ -171,7 +145,7 @@ ALTER TABLE `vendor_request`
 -- AUTO_INCREMENT for table `article_details`
 --
 ALTER TABLE `article_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `vendor_request`
 --

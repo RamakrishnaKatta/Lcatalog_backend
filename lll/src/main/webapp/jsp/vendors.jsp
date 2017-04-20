@@ -49,31 +49,23 @@
                             </div>
                             </div>
                          </div>
-<!--                          <div class="row"> -->
-<!--                             <div class="col-md-12"> -->
-<!--                             <div class="form-group"> -->
-<!--                             <label for="name">Location :</label> -->
-<!--                             <input type="text" class="form-control" name="type" id="type"> -->
-<!--                             </div> -->
-<!--                             </div> -->
-<!--                          </div> -->
+
                          <div class="row">
                             <div class="col-md-12">
                             <div class="form-group">
                             <label for="name">Logo :</label>
-                            <input type="file"  name="file" id="file">
+                            <input type="file" class="form-control" name="file" id="file">
                             </div>
                             </div>
                          </div>
-                         <input type="submit" class="btn btn-primary float-right" value="Upload File">
+                         <input type="submit" class="btn btn-primary float-right" value="Register">
                          </input>
                          </form>
                            
                      </div>
                      <div class="modal-footer">
                        
-<!--                         <div type="button" class="btn btn-sm btn-info add">Add</div> -->
-<!--                         <div type="button" class="btn btn-sm btn-info edit">Edit</div> -->
+
                      </div>
                   </div>
                </div></div>

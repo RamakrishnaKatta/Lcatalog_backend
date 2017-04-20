@@ -8,7 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class BindViewController {
 	
- @RequestMapping("/login")
+     @RequestMapping("/login")
 	 public String doLogin(){
 		 return "login";
 	 }
@@ -41,4 +41,6 @@ public class BindViewController {
 	  public ModelAndView getvendorReqs(){
 		  return new ModelAndView("vendorRequests");
 	  }
+	  
+	  
 }

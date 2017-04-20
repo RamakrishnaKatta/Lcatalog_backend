@@ -6,8 +6,8 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org
  <persistence-unit name="lll">
 	
 	<provider>org.hibernate.ejb.HibernatePersistence</provider>
-	<class>com.lll.model.VendorDetail</class>
 	<class>com.lll.model.UserDetail</class>
+	<class>com.lll.model.VendorDetail</class>
 	<class>com.lll.model.VendorRequest</class>
 	<class>com.lll.model.ArticleDetail</class>
   

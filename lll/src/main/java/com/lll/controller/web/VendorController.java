@@ -37,6 +37,7 @@ import com.lll.rest.VendorReg;
 
 
 @RestController
+@Controller
 @RequestMapping("web/vendor")
 public class VendorController {
 	
@@ -47,15 +48,17 @@ public class VendorController {
 	@Autowired
 	private VendorRepo vendorRepo;
 	
-//	@PostConstruct
-//	public void makeDir() {
-//		new File(System.getProperty("user.home") + File.separator + "vendorLogos").mkdirs();
-//	}
-	
 	@PostConstruct
 	public void makeDir() {
-		new File(System.getProperty("catalina.base")+File.separator+"webapps"+File.separator+"vendorLogos").mkdirs();
+		new File(System.getProperty("user.home") + File.separator + "vendorLogos").mkdirs();
 	}
+	
+//	@PostConstruct
+//	public void makeDir() {
+//		new File(System.getProperty("catalina.base")+File.separator+"webapps"+File.separator+"vendorLogos").mkdirs();
+//	}
+// String filePath=System.getProperty("catalina.base")+File.separator+"webapps/vendorLogos" + File.separator;
+
 	
 	@RequestMapping(value="all",method=RequestMethod.GET)
 	public Response getAllVendors(){
@@ -72,29 +75,25 @@ public class VendorController {
 		return resp;
 	}
 
-    @RequestMapping("/vendor_reg")
+    @RequestMapping(value="vendor_reg")
     public Response fileUploaded(@ModelAttribute("uploadedFile") VendorReg req) {
          
 			InputStream inputStream = null;
 			OutputStream outputStream = null;
 			MultipartFile file = req.getFile();
 			String fileName = file.getOriginalFilename();
-			//String filePath = System.getProperty("user.home") + File.separator + "vendorLogos" + File.separator;
-			String filePath=System.getProperty("catalina.base")+File.separator+"webapps/vendorLogos" + File.separator;
+			String filePath = System.getProperty("user.home") + File.separator + "vendorLogos" + File.separator;
+			String pathForDb=File.separator+"vendorLogos"+File.separator+System.currentTimeMillis()+ "."+FilenameUtils.getExtension(fileName);
 			String documentLink = filePath +System.currentTimeMillis()+ "." + FilenameUtils.getExtension(fileName);
 			
 			try {
 				inputStream = file.getInputStream();
-
 				File newFile = new File(documentLink);
-
 				outputStream = new FileOutputStream(newFile);
 				int read = 0;
 				byte[] bytes = new byte[1024];
-
 				while ((read = inputStream.read(bytes)) != -1) {
 					outputStream.write(bytes, 0, read);
-
 				}
 				outputStream.close();
 				
@@ -103,7 +102,7 @@ public class VendorController {
 				vendorDetail.setId(Integer.valueOf(req.getId()));
 				vendorDetail.setName(req.getName());
 				vendorDetail.setType(req.getType());
-				vendorDetail.setLogo(documentLink);
+				vendorDetail.setLogo(pathForDb);
 				vendorRepo.save(vendorDetail);
 
 			} catch (IOException e) {

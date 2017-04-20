@@ -15,7 +15,7 @@
     <div class="content-wrapper" >
         <section class="content">
         
-        <!-- ADD MODAL -->
+      <!-- ADD ARTICLE MODAL -->
            <div class="modal fade bs-example-modal-lg" id="myModal" >
                <div class="modal-dialog modal-lg">
                   <div class="modal-content">
@@ -24,53 +24,116 @@
                         <h4 class="modal-title"><b class="headerText">Add Article</b></h4>
                      </div>
                      <div class="modal-body">
-                        
-                        <div class="row">
-                            <div class="col-md-12">
-                            <div class="form-group">
-                            <label for="name">Name :</label>
-                            <input type="text" class="form-control" id="licenceType">
-                            </div>
-                            </div>
-                         </div>
+                        <form role="form" id="data"  method="post" enctype="multipart/form-data">
+                     
                          <div class="row">
                             <div class="col-md-12">
                             <div class="form-group">
                             <label for="name">Name :</label>
-                            <input type="text" class="form-control" id="name">
+                            <input type="text" class="form-control"  name="name" id="name">
                             </div>
                             </div>
                          </div>
                          <div class="row">
                             <div class="col-md-12">
                             <div class="form-group">
-                            <label for="name">Type :</label>
-                            <input type="text" class="form-control" id="type">
+                            <label for="name">Title :</label>
+                            <input type="text" class="form-control"  name="title" id="title">
                             </div>
                             </div>
                          </div>
                          <div class="row">
                             <div class="col-md-12">
                             <div class="form-group">
-                            <label for="name">Location :</label>
-                            <input type="text" class="form-control" id="location">
+                            <label for="name">Category :</label>
+                            <input type="text" class="form-control"  name="category" id="category">
                             </div>
                             </div>
                          </div>
+                         <div class="row">
+                            <div class="col-md-12">
+                            <div class="form-group">
+                            <label for="name">Sub Category :</label>
+                            <input type="text" class="form-control"  name="sub_category" id="sub_category">
+                            </div>
+                            </div>
+                         </div>
+                         <div class="row">
+                            <div class="col-md-12">
+                            <div class="form-group">
+                            <label for="name">Description :</label>
+                            <input type="text" class="form-control"  name="description" id="description">
+                            </div>
+                            </div>
+                         </div>
+                         <div class="row">
+                            <div class="col-md-12">
+                            <div class="form-group">
+                            <label for="name">Dimensions :</label>
+                            <input type="text" class="form-control"  name="dimensions" id="dimensions">
+                            </div>
+                            </div>
+                         </div>
+                         <div class="row">
+                            <div class="col-md-12">
+                            <div class="form-group">
+                            <label for="name">Discount :</label>
+                            <input type="text" class="form-control"  name="discount" id="discount">
+                            </div>
+                            </div>
+                         </div>
+                         <div class="row">
+                            <div class="col-md-12">
+                            <div class="form-group">
+                            <label for="name">Price :</label>
+                            <input type="text" class="form-control"  name="price" id="price">
+                            </div>
+                            </div>
+                         </div>
+                         <div class="row">
+                            <div class="col-md-12">
+                            <div class="form-group">
+                            <label for="name">Quantity :</label>
+                            <input type="text" class="form-control"  name="quantity" id="quantity">
+                            </div>
+                            </div>
+                         </div>
+                         
+                         <div class="row">
+                            <div class="col-md-12">
+                            <div class="form-group">
+                            <label for="name">VendorId :</label>
+                            <select type="number" class="form-control" name="vendorId" id="vendorId"></select>
+<!--                             <input type="number" class="form-control" placeholder="Please enter the correct vendorId Eg:100000" name="vendorId" id="vendorId">
+ -->                            </div>
+                            </div>
+                         </div>
+                         
+                         <div class="row">
+                            <div class="col-md-12">
+                            <div class="form-group">
+                            <label for="name">Uploaded User Id :</label>
+                            <input type="number" class="form-control"  readonly="true"  name="uploadedUserId" id="uploadedUserId">
+                            </div>
+                            </div>
+                         </div>
+    
                          <div class="row">
                             <div class="col-md-12">
                             <div class="form-group">
                             <label for="name">Logo :</label>
-                            <input type="file" class="form-control" id="logo">
+                            <input type="file" class="form-control" name="file" id="file">
                             </div>
                             </div>
                          </div>
-                             
+                         <input type="submit" class="btn btn-primary float-right" value="Add Article">
+                         </input>
+                         </form>
+                           
                      </div>
                      <div class="modal-footer">
-                        <div type="button" class="btn btn-sm btn-info add">Add</div>
-                        <div type="button" class="btn btn-sm btn-info edit">Edit</div>
-                     </div>
+                       
+                    </div>
                   </div>
                </div></div>
         

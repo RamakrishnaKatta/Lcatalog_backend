@@ -7,14 +7,16 @@ $("form#data").submit(function() {
             uploadFile(formData);
             $("#data")[0].reset();
             console.log(formData);
-            //$("#uploadFile").modal("hide");
-            
+            $("#myModal").modal("hide");
+            return false; 
  });
+
+
 
 function uploadFile(formData) {
     showLoader();
     $.ajax({
-        url: "http://localhost:8080/lll/web/vendor/vendor_reg",
+    	url: getApi(Urls.ADD_VENDOR),
         type: 'POST',
         data: formData,
         async: false,
@@ -22,20 +24,20 @@ function uploadFile(formData) {
             hideLoader();
             console.log(data);
             if (data.code == 200) {
-                alert("Learning material uploaded succesfully");
+                alert("Uploaded succesfully");
+                location.reload();
             } else {
                 alert("Some error occurred while uploading material. Please try again");
             }
+        },
+        error: function ( xhr, status, error) {
+        	location.reload();
         },
         cache: false,
         contentType: false,
         processData: false
     });
 }
-
-
-
-
 
 function loadVendors(){
 	showLoader(); 
@@ -64,7 +66,7 @@ function loadVendors(){
                  "mData": "name"
              },{
                  "sTitle": "Location",
-                 "mData": "location"
+                 "mData": "logo"
              },{
                  "sTitle": "Type",
                  "mData": "type"

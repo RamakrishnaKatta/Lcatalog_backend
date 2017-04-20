@@ -26,6 +26,8 @@ public class ArticleDetail implements Serializable {
 
 	private String discount;
 
+	private String img;
+
 	private String name;
 
 	private String object;
@@ -88,6 +90,14 @@ public class ArticleDetail implements Serializable {
 
 	public void setDiscount(String discount) {
 		this.discount = discount;
+	}
+
+	public String getImg() {
+		return this.img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
 	}
 
 	public String getName() {

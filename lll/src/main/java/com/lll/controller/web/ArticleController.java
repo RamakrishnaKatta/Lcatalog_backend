@@ -36,10 +36,15 @@ public class ArticleController {
 	@Autowired
 	private ArticleRepo articleRepo;
 	
+//	@PostConstruct
+//	public void makeDir() {
+//		new File(System.getProperty("user.home") + File.separator + "articlesImgs").mkdirs();
+//	}
+	
 	@PostConstruct
 	public void makeDir() {
-		new File(System.getProperty("user.home") + File.separator + "articlesImgs").mkdirs();
-	}
+		new File(System.getProperty("catalina.base")+File.separator+"webapps"+File.separator+"articlesImgs").mkdirs();
+		}
 	
 	@RequestMapping(value="all",method=RequestMethod.GET)
 	public Response getAllArticles(){
@@ -81,9 +86,10 @@ public class ArticleController {
 			MultipartFile file = req.getFile();
 			String fileName = file.getOriginalFilename();
 			System.out.println(fileName);
-			String filePath = System.getProperty("user.home") + File.separator + "articlesImgs" + File.separator;
-			String pathForDb=File.separator+"articlesImgs"+File.separator+System.currentTimeMillis()+ "."+FilenameUtils.getExtension(fileName);
-			String documentLink = filePath +System.currentTimeMillis()+ "." + FilenameUtils.getExtension(fileName);
+		    String filePath=System.getProperty("catalina.base")+File.separator+"webapps"+File.separator+"articlesImgs" + File.separator;
+			String fileNameTS=String.valueOf(System.currentTimeMillis());
+			String pathForDb=File.separator+"articlesImgs"+File.separator+fileNameTS+ "."+FilenameUtils.getExtension(fileName);
+			String documentLink = filePath +fileNameTS+ "." + FilenameUtils.getExtension(fileName);
 			
 			try {
 				inputStream = file.getInputStream();

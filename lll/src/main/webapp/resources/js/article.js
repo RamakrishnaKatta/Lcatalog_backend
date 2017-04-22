@@ -3,7 +3,6 @@ $(document).ready(function(){
    loadVendorsDropDown();
 })
 
-
 $("form#data").submit(function() {
             var formData = new FormData($(this)[0]);
             uploadFile(formData);
@@ -108,4 +107,33 @@ function loadUsers(){
 $(".showModal").click(function(){
 	$("#myModal").modal();
 	$(".edit").hide();
+})
+
+$("#vendorId").change(function(){
+	
+ 	var vendorId=$("#vendorId").val();
+    $("#uploadedUserId").val(parseInt(vendorId)+1);
+//	
+//	showLoader(); 
+//    $.ajax({
+//        type: "GET",
+//        async:false,
+//        contentType: 'application/json; charset=utf-8',
+//        dataType: 'json',
+//        url: getApi(Urls.GET_ALL_USERS),
+//    })
+//    .done(function(response){
+//    hideLoader();
+//    console.log(response);
+//    if(response.code==200){
+//        var options="<option value=null selected='selected'>--Select Uploaded User Id--</option>";
+//        for(var i=0;i<(response.resp).length;i++){
+//        var option="<option value='"+response.resp[i].id+"'>"+response.resp[i].name+"</option>";
+//        options=options+option;
+//        }
+//        $("#uploadedUserId").append(options);
+//    }else{
+//    	alert("No Admin found for this vendor");
+//    }
+//    })
 })

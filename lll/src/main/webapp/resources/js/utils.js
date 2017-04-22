@@ -81,7 +81,7 @@ function loadVendorsDropDown(){
 $("#vendorId").change(function(){
 	
  	var vendorId=$("#vendorId").val();
-    $("#uploadedUserId").val(vendorId+1);
+    $("#uploadedUserId").val(ParseInt(vendorId)+1);
 //	
 //	showLoader(); 
 //    $.ajax({

@@ -74,6 +74,21 @@ public class VendorController {
 		}
 		return resp;
 	}
+	
+	@RequestMapping(value="by",method=RequestMethod.GET)
+	public Response getVendorById(@RequestParam("id") int id){
+		try {
+		    resp.setResp(vendorRepo.findOne(id));
+			resp.setMessage(ResponseCodes.SUCCESS_MSG);
+			resp.setCode(ResponseCodes.SUCCESS);
+		} catch (Exception e) {
+			e.printStackTrace();
+			resp.setResp(e.getMessage());
+			resp.setMessage(ResponseCodes.FAILURE_MSG);
+			resp.setCode(ResponseCodes.FAILURE);
+		}
+		return resp;
+	}
 
     @RequestMapping(value="vendor_reg")
     public Response fileUploaded(@ModelAttribute("uploadedFile") VendorReg req) {

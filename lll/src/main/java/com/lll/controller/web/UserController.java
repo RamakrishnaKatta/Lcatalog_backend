@@ -18,7 +18,7 @@ import com.lll.rest.LoginRequest;
 import com.lll.rest.Request;
 import com.lll.rest.Response;
 import com.lll.rest.ResponseCodes;
-import com.lll.util.MyUtils;
+import com.lll.util.LLLUtils;
 
 @RestController
 @RequestMapping("web/user")
@@ -80,7 +80,7 @@ public class UserController {
 				if(lastUser!=null){
 					userdetail.setId(lastUser.getId()+1);
 					userdetail.setCreatedTime(new Timestamp(System.currentTimeMillis()));
-					userdetail.setPassword(MyUtils.getEncodedPassword(request.getRequest().getPassword()));
+					userdetail.setPassword(LLLUtils.getEncodedPassword(request.getRequest().getPassword()));
 					userRepo.save(userdetail);
 					resp.setResp(null);
 					resp.setMessage(ResponseCodes.SUCCESS_MSG);
@@ -100,7 +100,7 @@ public class UserController {
 	@RequestMapping(value="login",method=RequestMethod.POST)
 	public Response userLogin(@RequestBody Request<LoginRequest> req){
 		try {
-			UserDetail userdetail=userRepo.checkLogin(req.getRequest().getEmail(), MyUtils.getEncodedPassword(req.getRequest().getPassword()));
+			UserDetail userdetail=userRepo.checkLogin(req.getRequest().getEmail(), LLLUtils.getEncodedPassword(req.getRequest().getPassword()));
 		    
 			if(userdetail!=null){
 				userdetail.setPassword(null);

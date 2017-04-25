@@ -24,6 +24,7 @@ import com.lll.repo.ArticleRepo;
 import com.lll.rest.AddArticleReq;
 import com.lll.rest.Response;
 import com.lll.rest.ResponseCodes;
+import com.lll.util.LLLUtils;
 
 @RestController
 @RequestMapping("web/article")
@@ -108,7 +109,7 @@ public class ArticleController {
 					articleDetail.setCategory(req.getCategory());
 					articleDetail.setDescription(req.getDescription());
 					articleDetail.setDiscount(req.getDiscount());
-					articleDetail.setDimensions(req.getDimensions());
+					articleDetail.setDimensions(LLLUtils.getDimensionJson(req.getDimensions()));
 					articleDetail.setPrice(req.getPrice());
 					articleDetail.setQuantity(req.getQuantity());
 					articleDetail.setPrice(req.getPrice());

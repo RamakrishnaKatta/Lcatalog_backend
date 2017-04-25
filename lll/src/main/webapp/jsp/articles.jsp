@@ -70,7 +70,7 @@
                             <div class="col-md-12">
                             <div class="form-group">
                             <label for="name">Dimensions :</label>
-                            <input type="text" class="form-control"  name="dimensions" id="dimensions">
+                            <input type="text" class="form-control" placeholder="Please enter the dimension with comma separated value of width,lenght,heigth as 20,30,40 respectively Eg:20,40,30"  name="dimensions" id="dimensions">
                             </div>
                             </div>
                          </div>

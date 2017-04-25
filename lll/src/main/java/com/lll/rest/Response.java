@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.lll.util.MyUtils;
+import com.lll.util.LLLUtils;
 @Component
 @Qualifier("Response")
 public class Response {
@@ -33,7 +33,7 @@ public class Response {
 	
 	public String toJson(){
 		try {
-			return MyUtils.jsonString(this);
+			return LLLUtils.jsonString(this);
 		} catch (JsonProcessingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

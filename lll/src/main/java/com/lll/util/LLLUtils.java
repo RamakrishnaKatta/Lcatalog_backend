@@ -15,8 +15,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import com.lll.model.Dimension;
 
-public class MyUtils {
+public class LLLUtils {
 	
 	public static final ObjectMapper MAPPER = new ObjectMapper();
 	
@@ -28,6 +29,15 @@ public class MyUtils {
 			// TODO Auto-generated catch block
 			throw e;
 		}
+	}
+	
+	public static String getDimensionJson(String dimensions){
+		String[] points=dimensions.split(",");
+		Dimension dimension=new Dimension();
+		dimension.setWidth(points[0]);
+	    dimension.setLength(points[1]);
+	    dimension.setHeight(points[2]);
+	    return new Gson().toJson(dimension);
 	}
 	
 	public static int gen() {

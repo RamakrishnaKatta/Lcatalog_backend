@@ -24,7 +24,7 @@ function uploadFile(formData) {
             hideLoader();
             console.log(data);
             if (data.code == 200) {
-                alert("Uploaded succesfully");
+                alert("Uploaded Succesfully");
                 location.reload();
             } else {
                 alert("Some error occurred while uploading material. Please try again");

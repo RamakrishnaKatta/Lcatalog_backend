@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 20, 2017 at 03:49 AM
+-- Generation Time: Apr 25, 2017 at 07:51 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -33,7 +33,7 @@ CREATE TABLE `article_details` (
   `sub-category` varchar(20) DEFAULT NULL,
   `description` varchar(50) DEFAULT NULL,
   `title` varchar(20) DEFAULT NULL,
-  `img` varchar(70) DEFAULT NULL,
+  `img` varchar(255) DEFAULT NULL,
   `dimensions` varchar(80) DEFAULT NULL,
   `price` varchar(20) DEFAULT NULL,
   `object` varchar(25) DEFAULT NULL,
@@ -80,6 +80,13 @@ CREATE TABLE `vendor_details` (
   `other_details` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `vendor_details`
+--
+
+INSERT INTO `vendor_details` (`id`, `name`, `type`, `location`, `logo`, `other_details`) VALUES
+(100000, 'SHOPPER STOP', 'E-COMMERSE', NULL, '/vendorLogos/1492744427993.jpg', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -99,13 +106,6 @@ CREATE TABLE `vendor_request` (
   `state` varchar(20) DEFAULT NULL,
   `pin` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `vendor_request`
---
-
-INSERT INTO `vendor_request` (`id`, `company_name`, `contact_person_name`, `tot_models`, `email`, `mobile`, `is_Ack_sent`, `address`, `loc`, `state`, `pin`) VALUES
-(1, 'loverline', 'Satish', 10, 'stsh3g@gmail.com', '787898978787', 0, 'xxx', 'xxx', 'xxx', '54344');
 
 --
 -- Indexes for dumped tables
@@ -145,12 +145,12 @@ ALTER TABLE `vendor_request`
 -- AUTO_INCREMENT for table `article_details`
 --
 ALTER TABLE `article_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `vendor_request`
 --
 ALTER TABLE `vendor_request`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

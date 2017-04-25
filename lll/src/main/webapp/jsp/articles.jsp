@@ -121,8 +121,12 @@
                          <div class="row">
                             <div class="col-md-12">
                             <div class="form-group">
-                            <label for="name">Logo :</label>
-                            <input type="file" class="form-control" name="file" id="file">
+                            <label for="name">Upload Images :</label>
+                            <input type="file" class="form-control" name="file1" id="file1">
+                            <input type="file" class="form-control" name="file2" id="file2">
+                            <input type="file" class="form-control" name="file3" id="file3">
+                            <input type="file" class="form-control" name="file4" id="file4">
+                            <input type="file" class="form-control" name="file5" id="file5">
                             </div>
                             </div>
                          </div>

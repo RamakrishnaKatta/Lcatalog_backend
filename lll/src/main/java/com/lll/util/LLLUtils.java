@@ -1,15 +1,21 @@
 package com.lll.util;
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.security.MessageDigest;
 import java.util.Random;
 
+import org.apache.commons.io.FilenameUtils;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -82,6 +88,42 @@ public class LLLUtils {
 		}
 		//System.out.println("digested(hex):" + sb.toString());
 		return sb.toString();
+	}
+	
+	public static String uploadFile(MultipartFile file){
+		
+		InputStream inputStream = null;
+		OutputStream outputStream = null;
+		
+		
+		String fileName = file.getOriginalFilename();
+		System.out.println(fileName);
+	    String filePath=System.getProperty("catalina.base")+File.separator+"webapps"+File.separator+"articlesImgs" + File.separator;
+		String fileNameTS=String.valueOf(System.currentTimeMillis());
+		String pathForDb=File.separator+"articlesImgs"+File.separator+fileNameTS+ "."+FilenameUtils.getExtension(fileName);
+		String documentLink = filePath +fileNameTS+ "." + FilenameUtils.getExtension(fileName);
+		
+		try {
+		inputStream = file.getInputStream();
+		File newFile = new File(documentLink);
+		outputStream = new FileOutputStream(newFile);
+		int read = 0;
+		byte[] bytes = new byte[1024];
+		while ((read = inputStream.read(bytes)) != -1) {
+			outputStream.write(bytes, 0, read);
+		}
+		outputStream.close();
+		return pathForDb;
+		} catch (IOException e) {
+			e.printStackTrace();
+			return null;	
+		} catch (RuntimeException e) {
+			e.printStackTrace();
+			return null;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 }

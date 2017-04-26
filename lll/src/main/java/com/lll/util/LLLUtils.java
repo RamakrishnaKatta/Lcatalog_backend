@@ -99,7 +99,7 @@ public class LLLUtils {
 		String fileName = file.getOriginalFilename();
 		System.out.println(fileName);
 	    String filePath=System.getProperty("catalina.base")+File.separator+"webapps"+File.separator+"articlesImgs" + File.separator;
-		String fileNameTS=String.valueOf(System.currentTimeMillis());
+		String fileNameTS=String.valueOf(System.currentTimeMillis()+new Random().nextInt(5));
 		String pathForDb=File.separator+"articlesImgs"+File.separator+fileNameTS+ "."+FilenameUtils.getExtension(fileName);
 		String documentLink = filePath +fileNameTS+ "." + FilenameUtils.getExtension(fileName);
 		

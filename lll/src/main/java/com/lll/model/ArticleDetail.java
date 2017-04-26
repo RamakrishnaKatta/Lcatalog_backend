@@ -48,7 +48,13 @@ public class ArticleDetail implements Serializable {
 
 	@Column(name="vendor_id")
 	private int vendorId;
-
+	
+	@Transient
+	private ArticleImages images;
+	
+	@Transient 
+	private Dimension dimension;
+	
 	public ArticleDetail() {
 	}
 
@@ -171,5 +177,23 @@ public class ArticleDetail implements Serializable {
 	public void setVendorId(int vendorId) {
 		this.vendorId = vendorId;
 	}
+
+	public ArticleImages getImages() {
+		return images;
+	}
+
+	public void setImages(ArticleImages images) {
+		this.images = images;
+	}
+
+	public Dimension getDimension() {
+		return dimension;
+	}
+
+	public void setDimension(Dimension dimension) {
+		this.dimension = dimension;
+	}
+
+	
 
 }

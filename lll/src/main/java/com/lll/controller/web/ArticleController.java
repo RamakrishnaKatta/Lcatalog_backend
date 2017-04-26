@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 
@@ -22,6 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.google.gson.Gson;
 import com.lll.model.ArticleDetail;
 import com.lll.model.ArticleImages;
+import com.lll.model.Dimension;
 import com.lll.repo.ArticleRepo;
 import com.lll.rest.AddArticleReq;
 import com.lll.rest.Response;
@@ -52,7 +54,14 @@ public class ArticleController {
 	@RequestMapping(value="all",method=RequestMethod.GET)
 	public Response getAllArticles(){
 		try {
-		    resp.setResp(articleRepo.findAll());
+			List<ArticleDetail> articles=articleRepo.findAll();
+			for(ArticleDetail articleDetail:articles){			
+				articleDetail.setDimension(new Gson().fromJson(articleDetail.getDimensions(), Dimension.class));
+			    articleDetail.setImages(new Gson().fromJson(articleDetail.getImg(), ArticleImages.class));
+			    articleDetail.setDimensions(null);
+			    articleDetail.setImg(null);
+			}
+		    resp.setResp(articles);
 			resp.setMessage(ResponseCodes.SUCCESS_MSG);
 			resp.setCode(ResponseCodes.SUCCESS);
 		} catch (Exception e) {
@@ -67,7 +76,14 @@ public class ArticleController {
 	@RequestMapping(value="by",method=RequestMethod.GET)
 	public Response getAllArticlesByVendorId(@RequestParam("vendorId") int vendorId){
 		try {
-		    resp.setResp(articleRepo.getArticledetailByVendorId(vendorId));
+			List<ArticleDetail> articles=articleRepo.getArticledetailByVendorId(vendorId);
+			for(ArticleDetail articleDetail:articles){			
+				articleDetail.setDimension(new Gson().fromJson(articleDetail.getDimensions(), Dimension.class));
+			    articleDetail.setImages(new Gson().fromJson(articleDetail.getImg(), ArticleImages.class));
+			    articleDetail.setDimensions(null);
+			    articleDetail.setImg(null);
+			}
+		    resp.setResp(articles);
 			resp.setMessage(ResponseCodes.SUCCESS_MSG);
 			resp.setCode(ResponseCodes.SUCCESS);
 		} catch (Exception e) {
@@ -133,6 +149,7 @@ public class ArticleController {
 			articleDetail.setVendorId(req.getVendorId());
 			articleDetail.setTitle(req.getTitle());
 			articleDetail.setImg(new Gson().toJson(articleImages));
+			articleDetail.setImages(articleImages);
 			articleRepo.save(articleDetail);
 			resp.setResp(null);
 			resp.setCode(ResponseCodes.SUCCESS);

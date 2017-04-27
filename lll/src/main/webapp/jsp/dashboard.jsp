@@ -12,7 +12,7 @@
 
 
 </head>
-<body>
+<body ng-app="lll">
  <%@ include file="header.jsp" %>
  <%@ include file="side-menu.jsp" %>
    <style type="text/css">
@@ -27,39 +27,49 @@
    </style>
    
    
-    <div class="content-wrapper" style="min-height: 303px;padding: 20px;">
+    <div class="content-wrapper" ng-controller="dashboardStats" style="min-height: 303px;padding: 20px;">
  
       <div class="row">
      
-          <div class="col-sm-4">
+          <div class="col-sm-3">
              <div class="info-box">
 				  <!-- Apply any bg-* class to to the icon to color it -->
 				  <span class="info-box-icon bg-blue"><i class="customImg glyphicon glyphicon-king"></i></span>
 				  <div class="info-box-content">
 				    <span class="info-box-text"><b>Vendors</b></span>
-				    <span class="info-box-number vendors"></span>
+				    <span class="info-box-number vendors" ng-model="vendorCount">{{vendorCount}}</span>
 				  </div><!-- /.info-box-content -->
 				</div><!-- /.info-box -->   
           </div>
           
-           <div class="col-sm-4">
-             <div class="info-box">
-				  <!-- Apply any bg-* class to to the icon to color it -->
-				  <span class="info-box-icon bg-blue"><i class="customImg glyphicon glyphicon-user"></i></span>
-				  <div class="info-box-content">
-				    <span class="info-box-text"><b>Users</b></span>
-				    <span class="info-box-number users"></span>
-				  </div><!-- /.info-box-content -->
-				</div><!-- /.info-box -->   
-          </div>
-          
-           <div class="col-sm-4">
+           <div class="col-sm-3">
              <div class="info-box">
 				  <!-- Apply any bg-* class to to the icon to color it -->
 				  <span class="info-box-icon bg-blue"><i class="customImg glyphicon glyphicon-text-color"></i></span>
 				  <div class="info-box-content">
 				    <span class="info-box-text"><b>Articles</b></span>
-				    <span class="info-box-number articles"></span>
+				    <span class="info-box-number articles" ng-model="articleCount">{{articleCount}}</span>
+				  </div><!-- /.info-box-content -->
+				</div><!-- /.info-box -->   
+          </div>
+          
+          <div class="col-sm-3">
+             <div class="info-box">
+				  <!-- Apply any bg-* class to to the icon to color it -->
+				  <span class="info-box-icon bg-blue"><i class="customImg glyphicon glyphicon-user"></i></span>
+				  <div class="info-box-content">
+				    <span class="info-box-text"><b>Users</b></span>
+				    <span class="info-box-number users" ng-model="userCount">{{userCount}}</span>
+				  </div><!-- /.info-box-content -->
+				</div><!-- /.info-box -->   
+          </div>
+          <div class="col-sm-3">
+             <div class="info-box">
+				  <!-- Apply any bg-* class to to the icon to color it -->
+				  <span class="info-box-icon bg-blue"><i class="customImg glyphicon glyphicon-text-color"></i></span>
+				  <div class="info-box-content">
+				    <span class="info-box-text"><b>Vendor Requests</b></span>
+				    <span class="info-box-number articles" ng-model="requestCount">{{requestCount}}</span>
 				  </div><!-- /.info-box-content -->
 				</div><!-- /.info-box -->   
           </div>

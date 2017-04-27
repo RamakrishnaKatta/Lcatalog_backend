@@ -1,19 +1,13 @@
-$(function () {
-	getDashBoardStats();
+
+app.controller('dashboardStats',function($scope,$http){
+  		$http.get(getApi(Urls.GET_DASHBOARD_STATS))
+	    .then(function(response) {
+	    	console.log(response);
+	        $scope.vendorCount = response.data.resp.vendors;
+	        $scope.articleCount = response.data.resp.articles;
+	        $scope.userCount = response.data.resp.users;
+	        $scope.requestCount = response.data.resp.vendorReqs;
+	    });
 })
 
-function getDashBoardStats(){
-	 showLoader();
-	 $.ajax({
-         type: "GET",
-         contentType: 'application/json; charset=utf-8',
-         dataType: 'json',
-         async: false, 
-         url: getApi(Urls.GET_DASHBOARD_STATS),
-     }).done(function(response) {
-    	 hideLoader();
-    	 $(".vendors").html(response.resp.vendors);
-    	 $(".users").html(response.resp.users);
-    	 $(".articles").html(response.resp.articles);
-     });
-}
+

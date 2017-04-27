@@ -10,6 +10,7 @@ import com.lll.customClasses.DashboardCount;
 import com.lll.repo.ArticleRepo;
 import com.lll.repo.UserRepo;
 import com.lll.repo.VendorRepo;
+import com.lll.repo.VendorReqRepo;
 import com.lll.rest.Response;
 import com.lll.rest.ResponseCodes;
 
@@ -33,6 +34,9 @@ public class Dashboard {
 	
 	@Autowired
 	private UserRepo userRepo;
+	
+	@Autowired
+	private VendorReqRepo vendorReqRepo;
 
 	
 	@RequestMapping(value="get_dashboard_stats",method=RequestMethod.GET)
@@ -42,6 +46,7 @@ public class Dashboard {
 			dashboardCount.setUsers((int) userRepo.count());
 			dashboardCount.setVendors((int) vendorRepo.count());
 			dashboardCount.setArticles((int) articleRepo.count());
+			dashboardCount.setVendorReqs((int) vendorReqRepo.count());
 			resp.setResp(dashboardCount);
 			resp.setMessage(ResponseCodes.SUCCESS_MSG);
 			resp.setCode(ResponseCodes.SUCCESS);

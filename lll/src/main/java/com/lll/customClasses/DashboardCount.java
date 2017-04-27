@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Qualifier("DashboardStats")
 public class DashboardCount {
 
-	private Integer vendors,users,articles;
+	private Integer vendors,users,articles,vendorReqs;
 
 	public Integer getVendors() {
 		return vendors;
@@ -31,6 +31,14 @@ public class DashboardCount {
 
 	public void setArticles(Integer articles) {
 		this.articles = articles;
+	}
+
+	public Integer getVendorReqs() {
+		return vendorReqs;
+	}
+
+	public void setVendorReqs(Integer vendorReqs) {
+		this.vendorReqs = vendorReqs;
 	}
 
 	

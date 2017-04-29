@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.google.gson.Gson;
@@ -18,6 +19,7 @@ import com.lll.rest.LoginRequest;
 import com.lll.rest.Request;
 import com.lll.rest.Response;
 import com.lll.rest.ResponseCodes;
+import com.lll.rest.UpdatePasswordReq;
 import com.lll.util.LLLUtils;
 
 @RestController
@@ -38,6 +40,39 @@ public class UserController {
 	public Response getAllVendors(){
 		try {
 		    resp.setResp(userRepo.findAll());
+			resp.setMessage(ResponseCodes.SUCCESS_MSG);
+			resp.setCode(ResponseCodes.SUCCESS);
+		} catch (Exception e) {
+			e.printStackTrace();
+			resp.setResp(e.getMessage());
+			resp.setMessage(ResponseCodes.FAILURE_MSG);
+			resp.setCode(ResponseCodes.FAILURE);
+		}
+		return resp;
+	}
+	
+	@RequestMapping(value="by",method=RequestMethod.GET)
+	public Response getUserId(@RequestParam("email") String email){
+		try {
+		    resp.setResp(userRepo.getUserByEmail(email));
+			resp.setMessage(ResponseCodes.SUCCESS_MSG);
+			resp.setCode(ResponseCodes.SUCCESS);
+		} catch (Exception e) {
+			e.printStackTrace();
+			resp.setResp(e.getMessage());
+			resp.setMessage(ResponseCodes.FAILURE_MSG);
+			resp.setCode(ResponseCodes.FAILURE);
+		}
+		return resp;
+	}
+	
+	@RequestMapping(value="update_password",method=RequestMethod.POST)
+	public Response updatePassword(@RequestBody Request<UpdatePasswordReq> req){
+		try {
+			UserDetail userDetail=userRepo.getUserByEmail(req.getRequest().getEmail());
+			userDetail.setPassword(LLLUtils.getEncodedPassword(req.getRequest().getNewPassword()));
+			userRepo.save(userDetail);
+		    resp.setResp(null);
 			resp.setMessage(ResponseCodes.SUCCESS_MSG);
 			resp.setCode(ResponseCodes.SUCCESS);
 		} catch (Exception e) {

@@ -14,6 +14,7 @@ import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -26,6 +27,7 @@ import com.lll.model.ArticleImages;
 import com.lll.model.Dimension;
 import com.lll.repo.ArticleRepo;
 import com.lll.rest.AddArticleReq;
+import com.lll.rest.Request;
 import com.lll.rest.Response;
 import com.lll.rest.ResponseCodes;
 import com.lll.util.LLLUtils;
@@ -49,7 +51,36 @@ public class ArticleController {
 	@PostConstruct
 	public void makeDir() {
 		new File(System.getProperty("catalina.base")+File.separator+"webapps"+File.separator+"articlesImgs").mkdirs();
+		new File(System.getProperty("catalina.base")+File.separator+"webapps"+File.separator+"models").mkdirs();	
+	}
+	
+	@RequestMapping(value="update",method=RequestMethod.POST)
+	public Response updateArticle(@RequestBody Request<ArticleDetail> req){
+		try {
+			ArticleDetail ad=articleRepo.findOne(req.getRequest().getId());
+			ad.setCategory(req.getRequest().getCategory());
+			ad.setTitle(req.getRequest().getTitle());
+			ad.setSub_category(req.getRequest().getSub_category());
+			ad.setDescription(req.getRequest().getDescription());
+			ad.setDimensions(LLLUtils.getDimensionJson(req.getRequest().getCategory()));
+			ad.setDiscount((req.getRequest().getDiscount()));
+			ad.setPrice(req.getRequest().getPrice());
+			ad.setQuantity(req.getRequest().getQuantity());
+			ad.setVendorId(req.getRequest().getVendorId());
+			//ad.setCategory(req.getRequest().getCategory());
+			articleRepo.save(ad);
+		    resp.setResp(null);
+			resp.setMessage(ResponseCodes.SUCCESS_MSG);
+			resp.setCode(ResponseCodes.SUCCESS);
+		} catch (Exception e) {
+			e.printStackTrace();
+			resp.setResp(e.getMessage());
+			resp.setMessage(ResponseCodes.FAILURE_MSG);
+			resp.setCode(ResponseCodes.FAILURE);
 		}
+		return resp;
+	}
+	
 	
 	@RequestMapping(value="all",method=RequestMethod.GET)
 	public Response getAllArticles(){
@@ -99,6 +130,11 @@ public class ArticleController {
     public Response addArticle(@ModelAttribute("uploadFile") AddArticleReq req) {
 		 
 		try {
+			//Upload Object
+			String objId=String.valueOf(System.currentTimeMillis()+LLLUtils.gen());
+			String objFile=LLLUtils.uploadObject(req.getObjFile(),objId);
+			
+			
 			ArrayList<MultipartFile> files=new ArrayList<MultipartFile>();
 			
 			if(!req.getFile1().isEmpty()){
@@ -136,6 +172,7 @@ public class ArticleController {
 			  }
 					    
 			ArticleDetail articleDetail=new ArticleDetail();
+			articleDetail.setId(objId);
 			articleDetail.setName(req.getName());
 			articleDetail.setCategory(req.getCategory());
 			articleDetail.setDescription(req.getDescription());

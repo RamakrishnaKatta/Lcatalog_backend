@@ -90,6 +90,41 @@ public class LLLUtils {
 		return sb.toString();
 	}
 	
+public static String uploadObject(MultipartFile file,String objId){
+		
+		InputStream inputStream = null;
+		OutputStream outputStream = null;
+	
+		String fileName = file.getOriginalFilename();
+	    String filePath=System.getProperty("catalina.base")+File.separator+"webapps"+File.separator+"models" + File.separator;
+		String fileNameTS=String.valueOf(System.currentTimeMillis()+LLLUtils.gen());
+		String pathForDb=File.separator+"models"+File.separator+objId+ "."+FilenameUtils.getExtension(fileName);
+		String documentLink = filePath +fileNameTS+ "." + FilenameUtils.getExtension(fileName);
+		
+		try {
+		inputStream = file.getInputStream();
+		File newFile = new File(documentLink);
+		outputStream = new FileOutputStream(newFile);
+		int read = 0;
+		byte[] bytes = new byte[1024];
+		while ((read = inputStream.read(bytes)) != -1) {
+			outputStream.write(bytes, 0, read);
+		}
+		outputStream.close();
+		return pathForDb;
+		} catch (IOException e) {
+			e.printStackTrace();
+			return null;	
+		} catch (RuntimeException e) {
+			e.printStackTrace();
+			return null;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	
 	public static String uploadFile(MultipartFile file){
 		
 		InputStream inputStream = null;
@@ -97,9 +132,8 @@ public class LLLUtils {
 		
 		
 		String fileName = file.getOriginalFilename();
-		System.out.println(fileName);
 	    String filePath=System.getProperty("catalina.base")+File.separator+"webapps"+File.separator+"articlesImgs" + File.separator;
-		String fileNameTS=String.valueOf(System.currentTimeMillis()+new Random().nextInt(5));
+		String fileNameTS=String.valueOf(System.currentTimeMillis()+LLLUtils.gen());
 		String pathForDb=File.separator+"articlesImgs"+File.separator+fileNameTS+ "."+FilenameUtils.getExtension(fileName);
 		String documentLink = filePath +fileNameTS+ "." + FilenameUtils.getExtension(fileName);
 		
@@ -125,5 +159,14 @@ public class LLLUtils {
 			return null;
 		}
 	}
+	
+	public static String getObjectName(String path) {
+		String name=path.split("models/")[1];
+		 return name.split("\\.")[0];
+	}
+	
+//	public String getRandomNo(){
+//		return String.valueOf(10000 + new Random().nextInt(90000));
+//	}
 
 }

@@ -7,7 +7,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8	">
 <title>Dashboard</title>
 
 
@@ -66,7 +66,7 @@
           <div class="col-sm-3">
              <div class="info-box">
 				  <!-- Apply any bg-* class to to the icon to color it -->
-				  <span class="info-box-icon bg-blue"><i class="customImg glyphicon glyphicon-text-color"></i></span>
+				  <span class="info-box-icon bg-blue"><i class="customImg glyphicon glyphicon-plus"></i></span>
 				  <div class="info-box-content">
 				    <span class="info-box-text"><b>Vendor Requests</b></span>
 				    <span class="info-box-number articles" ng-model="requestCount">{{requestCount}}</span>

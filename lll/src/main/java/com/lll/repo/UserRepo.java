@@ -17,4 +17,6 @@ public interface UserRepo extends JpaRepository<UserDetail, Integer>{
 	@Query(value="SELECT * FROM `user_details` WHERE `email`=?1 and `password`=?2", nativeQuery=true)
 	UserDetail checkLogin(String mobileNo,String password);
 	
+	UserDetail getUserByEmail(String email);
+	
 }

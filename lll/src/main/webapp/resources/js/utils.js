@@ -29,7 +29,10 @@ var Urls={
 		ADD_ARTICLE:"web/article/add_article",
 		
 		//GET VENDOR NAMES
-		GET_VENDOR_ID:""
+		GET_VENDOR_ID:"",
+		
+		//UPDATE ARTICLE
+		UPDATE_ARTICLE:"web/article/update"
 }
 
 function getApi(name){
@@ -72,6 +75,7 @@ function loadVendorsDropDown(){
         options=options+option;
         }
         $("#vendorId").append(options);
+        $("#vendorIdU").append(options);
     }
     })
 }
@@ -82,5 +86,9 @@ $("#vendorId").change(function(){
  	var vendorId=$("#vendorId").val();
     $("#uploadedUserId").val(ParseInt(vendorId)+1);
 })
+
+function httpFailure(){
+	alert("Opps Server is not responding");
+}
 
 

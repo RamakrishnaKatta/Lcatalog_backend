@@ -98,14 +98,93 @@ function loadUsers(){
                      "mRender": function(data, type, row) {
                         return "<button class= 'glyphicon glyphicon-trash delBtn btn btn-default' title='Delete Route'><button class='glyphicon glyphicon-zoom-in viewResult btn btn-default' title='View Results'></button>";
                      }
-                } ]
+                }]
          })
+         
+         var table = $('#myTable').DataTable();
+         
+         $('#myTable tbody').on( 'click', '.viewResult', function () {
+    	       var data = table.row( $(this).parents('tr') ).data();
+    	       console.log(data);
+               rowData=data;
+               populateForm(rowData);	       
+          }); 
     
     })
 }
 
+$(".editArticle").click(function(){
+	
+	var id=$("#idU").val();
+	var category=$("#categoryU").val();
+	var description=$("#descriptionU").val();
+	var dimension=$("#dimensionU").val();
+	var discount=$("#discountU").val();
+	var name=$("#nameU").val();
+	var price=$("#priceU").val();
+	var quantity=$("#quantityU").val();
+	var sub_category=$("#sub_categoryU").val();
+	var title=$("#titleU").val();
+	var uploadedUserId=$("#uploadedUserIdU").val();
+	var vendorId=$("#vendorIdU").val();
+	
+	var request={"request":{"id":id,"category":category,"description":description,"dimension":dimension,"discount":discount,"name":name,"price":price,
+	     "quantity":quantity,"sub_category":sub_category,"title":title,"uploadedUserId":uploadedUserId,"vendorId":vendorId
+	}}
+	
+	console.log(JSON.stringify(request))
+	
+	showLoader();
+     $.ajax({
+                type: "POST",
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                url: getApi(Urls.UPDATE_ARTICLE),
+                data: JSON.stringify(request)
+            })
+            .done(function(response){
+                hideLoader();
+                if(response.code==200){
+               	alert("Details Updated");
+                $('#myModal').modal('toggle');
+               }else{
+               	alert("Opps Something went wrong");
+               }           
+             }).fail(function(jqXHR, textStatus, errorThrown) {
+                //checkSessionTimeout(jqXHR, textStatus, errorThrown);
+                alert("Opps something went wrong");
+                hideLoader();
+            })
+	
+})
+
+
+
+function populateForm(rowData){
+	$("#myUpdateModal").modal();	
+	$("#idU").val(rowData.id);
+	$("#categoryU").val(rowData.category);
+	$("#descriptionU").val(rowData.description);
+	var dims=rowData.dimension.width+","+rowData.dimension.length+","+rowData.dimension.height;
+	console.log(dims);
+	$("#dimensionsU").val(dims);
+	$("#discountU").val(rowData.discount);
+	$("#nameU").val(rowData.name);
+	$("#priceU").val(rowData.price);
+	$("#quantityU").val(rowData.quantity);
+	$("#sub_categoryU").val(rowData.sub_category);
+	$("#titleU").val(rowData.title);
+	$("#uploadedUserIdU").val(rowData.uploadedUserId);
+	$("#vendorIdU").val(rowData.vendorId);	
+}
+
 $(".showModal").click(function(){
 	$("#myModal").modal();
+	$(".edit").hide();
+})
+
+$(".viewResult").click(function(){
+	$("#myUpdateModal").modal();
 	$(".edit").hide();
 })
 

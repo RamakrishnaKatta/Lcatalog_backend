@@ -117,6 +117,15 @@
                             </div>
                             </div>
                          </div>
+                         
+                         <div class="row">
+                            <div class="col-md-12">
+                            <div class="form-group">
+                            <label for="name">Upload Object:</label>
+							<input type="file" class="form-control" name="objFile" id="objFile">
+                            </div>
+                            </div>
+                         </div>
     
                          <div class="row">
                             <div class="col-md-12">
@@ -140,6 +149,129 @@
                     </div>
                   </div>
                </div></div>
+        
+        
+        <!-- Article Update Model -->
+        
+        
+        <!-- Update ARTICLE MODAL -->
+           <div class="modal fade bs-example-modal-lg" id="myUpdateModal" >
+               <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title"><b class="headerText">Update Article</b></h4>
+                     </div>
+                     <div class="modal-body">
+                        <form role="form" id="data"  method="post" enctype="multipart/form-data">
+                        
+                         
+                            <input type="hidden" class="form-control"  id="idU">
+                            
+                         <div class="row">
+                            <div class="col-md-12">
+                            <div class="form-group">
+                            <label for="name">Title :</label>
+                            <input type="text" class="form-control" id="titleU">
+                            </div>
+                            </div>
+                         </div>
+                         <div class="row">
+                            <div class="col-md-12">
+                            <div class="form-group">
+                            <label for="name">Category :</label>
+                            <input type="text" class="form-control" id="categoryU">
+                            </div>
+                            </div>
+                         </div>
+                         <div class="row">
+                            <div class="col-md-12">
+                            <div class="form-group">
+                            <label for="name">Sub Category :</label>
+                            <input type="text" class="form-control"  id="sub_categoryU">
+                            </div>
+                            </div>
+                         </div>
+                         <div class="row">
+                            <div class="col-md-12">
+                            <div class="form-group">
+                            <label for="name">Description :</label>
+                            <input type="text" class="form-control" id="descriptionU">
+                            </div>
+                            </div>
+                         </div>
+                         <div class="row">
+                            <div class="col-md-12">
+                            <div class="form-group">
+                            <label for="name">Dimensions :</label>
+                            <input type="text" class="form-control" placeholder="Please enter the dimension with comma separated value of width,lenght,heigth as 20,30,40 respectively Eg:20,40,30" id="dimensionsU">
+                            </div>
+                            </div>
+                         </div>
+                         <div class="row">
+                            <div class="col-md-12">
+                            <div class="form-group">
+                            <label for="name">Discount :</label>
+                            <input type="text" class="form-control" id="discountU">
+                            </div>
+                            </div>
+                         </div>
+                         <div class="row">
+                            <div class="col-md-12">
+                            <div class="form-group">
+                            <label for="name">Price :</label>
+                            <input type="text" class="form-control" id="priceU">
+                            </div>
+                            </div>
+                         </div>
+                         <div class="row">
+                            <div class="col-md-12">
+                            <div class="form-group">
+                            <label for="name">Quantity :</label>
+                            <input type="text" class="form-control" id="quantityU">
+                            </div>
+                            </div>
+                         </div>
+                         
+                         <div class="row">
+                            <div class="col-md-12">
+                            <div class="form-group">
+                            <label for="name">VendorId :</label>
+                            <select type="number" class="form-control" id="vendorIdU"></select>
+<!--                             <input type="number" class="form-control" placeholder="Please enter the correct vendorId Eg:100000" name="vendorId" id="vendorId">
+ -->                            </div>
+                            </div>
+                         </div>
+                         
+                         <div class="row">
+                            <div class="col-md-12">
+                            <div class="form-group">
+                            <label for="name">Uploaded User Id :</label>
+                            <input type="number" class="form-control"  readonly="true" id="uploadedUserIdU">
+                            </div>
+                            </div>
+                         </div>
+                         
+                         
+    
+                        <div class="row">
+                            <div class="col-md-8"></div>
+                            <div class="col-md-4">
+                            <button type="button" class="btn btn-sm btn-info editArticle">Update</button>
+                            </div>
+                         </div>
+                         
+                         </form>
+                           
+                     </div>
+                     <div class="modal-footer">
+                       
+                    </div>
+                  </div>
+               </div></div>
+               
+               
+               <!-- ------------------------------ -->
         
           
                

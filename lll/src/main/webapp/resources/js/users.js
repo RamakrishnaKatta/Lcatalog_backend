@@ -1,5 +1,12 @@
 $(document).ready(function(){
-   loadUsers();
+	alert("Haiiii")
+})
+
+app.controller('vendorSearch',function($scope,$http){
+	$http.get(getApi(Urls.GET_ALL_VENDORS))
+    .then(function(resp) {
+        $scope.vendors = resp.data.resp;
+    },httpFailure);
 })
 
 function loadUsers(){

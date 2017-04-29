@@ -15,8 +15,8 @@ public class ArticleDetail implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	//@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private String id;
 
 	private String category;
 
@@ -57,14 +57,19 @@ public class ArticleDetail implements Serializable {
 	
 	public ArticleDetail() {
 	}
-
-	public int getId() {
-		return this.id;
+	
+	
+	public String getId() {
+		return id;
 	}
 
-	public void setId(int id) {
+
+
+	public void setId(String id) {
 		this.id = id;
 	}
+
+
 
 	public String getCategory() {
 		return this.category;

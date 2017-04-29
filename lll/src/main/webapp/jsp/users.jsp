@@ -9,7 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>LLL-Users</title>
 </head>
-<body>
+<body ng-app="lll">
      <%@ include file="header.jsp" %>
      <%@ include file="side-menu.jsp" %>
     <div class="content-wrapper" >
@@ -100,16 +100,15 @@
                               <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                           </div>
                       </div><!-- /.box-header -->
-                      <div class="box-body">
+                      <div class="box-body" ng-controller="userSearch">
                          <form id="create_role_form" name="create_role_form">
                          
                            <div class="row">
                               <div class="col-md-6">
                               <div class="form-group">
                               <h5 class="box-title">Vendor</h5>
-							  <select class="form-control" id="sel1">
-							  <option>Shopper Stop</option>
-							  <option>Home Stop</option>
+							  <select class="form-control" id="vendorSearch">
+							  <option ng-repeat="x in vendors" value={{x.id}}>{{x.name}}</option>
 							  </select>
 							  </div>
                               </div>
@@ -172,10 +171,11 @@
 </body>
 </html>
 
-<script type="text/javascript"
-  src="<c:url value="/resources/js/users.js" />"></script>
+
 <script type="text/javascript"
   src="<c:url value="/resources/js/utils.js" />"></script>
+  <script type="text/javascript"
+  src="<c:url value="/resources/js/users.js" />"></script>
     
   
   

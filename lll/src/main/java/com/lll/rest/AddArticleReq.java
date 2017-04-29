@@ -6,7 +6,7 @@ import com.lll.model.ArticleDetail;
 
 public class AddArticleReq extends ArticleDetail{
 
-	private MultipartFile file1,file2,file3,file4,file5;
+	private MultipartFile file1,file2,file3,file4,file5,objFile;
 
 	public MultipartFile getFile1() {
 		return file1;
@@ -47,6 +47,13 @@ public class AddArticleReq extends ArticleDetail{
 	public void setFile5(MultipartFile file5) {
 		this.file5 = file5;
 	}
-	
-	
+
+	public MultipartFile getObjFile() {
+		return objFile;
+	}
+
+	public void setObjFile(MultipartFile objFile) {
+		this.objFile = objFile;
+	}
+
 }

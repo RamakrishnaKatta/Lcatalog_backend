@@ -1,4 +1,4 @@
-package com.lll.model;
+	package com.lll.model;
 
 import java.io.Serializable;
 import javax.persistence.*;

@@ -172,7 +172,16 @@
                             <div class="col-md-12">
                             <div class="form-group">
                             <label for="name">Title :</label>
-                            <input type="text" class="form-control" id="titleU">
+                            <input type="text" class="form-control rd" id="titleU">
+                            </div>
+                            </div>
+                         </div>
+                         
+                         <div class="row">
+                            <div class="col-md-12">
+                            <div class="form-group">
+                            <label for="name">Name :</label>
+                            <input type="text" class="form-control rd" id="nameU">
                             </div>
                             </div>
                          </div>
@@ -180,7 +189,7 @@
                             <div class="col-md-12">
                             <div class="form-group">
                             <label for="name">Category :</label>
-                            <input type="text" class="form-control" id="categoryU">
+                            <input type="text" class="form-control rd" id="categoryU">
                             </div>
                             </div>
                          </div>
@@ -188,7 +197,7 @@
                             <div class="col-md-12">
                             <div class="form-group">
                             <label for="name">Sub Category :</label>
-                            <input type="text" class="form-control"  id="sub_categoryU">
+                            <input type="text" class="form-control rd"  id="sub_categoryU">
                             </div>
                             </div>
                          </div>
@@ -196,7 +205,7 @@
                             <div class="col-md-12">
                             <div class="form-group">
                             <label for="name">Description :</label>
-                            <input type="text" class="form-control" id="descriptionU">
+                            <input type="text" class="form-control rd" id="descriptionU">
                             </div>
                             </div>
                          </div>
@@ -204,7 +213,7 @@
                             <div class="col-md-12">
                             <div class="form-group">
                             <label for="name">Dimensions :</label>
-                            <input type="text" class="form-control" placeholder="Please enter the dimension with comma separated value of width,lenght,heigth as 20,30,40 respectively Eg:20,40,30" id="dimensionsU">
+                            <input type="text" class="form-control rd" placeholder="Please enter the dimension with comma separated value of width,lenght,heigth as 20,30,40 respectively Eg:20,40,30" id="dimensionsU">
                             </div>
                             </div>
                          </div>
@@ -212,7 +221,7 @@
                             <div class="col-md-12">
                             <div class="form-group">
                             <label for="name">Discount :</label>
-                            <input type="text" class="form-control" id="discountU">
+                            <input type="text" class="form-control rd" id="discountU">
                             </div>
                             </div>
                          </div>
@@ -220,7 +229,7 @@
                             <div class="col-md-12">
                             <div class="form-group">
                             <label for="name">Price :</label>
-                            <input type="text" class="form-control" id="priceU">
+                            <input type="text" class="form-control rd" id="priceU">
                             </div>
                             </div>
                          </div>
@@ -228,7 +237,7 @@
                             <div class="col-md-12">
                             <div class="form-group">
                             <label for="name">Quantity :</label>
-                            <input type="text" class="form-control" id="quantityU">
+                            <input type="text" class="form-control rd" id="quantityU">
                             </div>
                             </div>
                          </div>
@@ -237,7 +246,7 @@
                             <div class="col-md-12">
                             <div class="form-group">
                             <label for="name">VendorId :</label>
-                            <select type="number" class="form-control" id="vendorIdU"></select>
+                            <select type="number" class="form-control rd" id="vendorIdU"></select>
 <!--                             <input type="number" class="form-control" placeholder="Please enter the correct vendorId Eg:100000" name="vendorId" id="vendorId">
  -->                            </div>
                             </div>
@@ -256,7 +265,10 @@
     
                         <div class="row">
                             <div class="col-md-8"></div>
-                            <div class="col-md-4">
+                            <div class="col-md-2">
+                            <button type="button" class="btn btn-sm btn-info edit">Edit</button>
+                            </div>
+                            <div class="col-md-2">
                             <button type="button" class="btn btn-sm btn-info editArticle">Update</button>
                             </div>
                          </div>

@@ -1,6 +1,7 @@
 $(document).ready(function(){
    loadUsers();
    loadVendorsDropDown();
+   $('.rd').prop('readonly', true);
 })
 
 $("form#data").submit(function() {
@@ -12,6 +13,9 @@ $("form#data").submit(function() {
             return false; 
  });
 
+$(".edit").click(function(){
+	$('.rd').prop('readonly', false);
+})
 
 function uploadFile(formData) {
     showLoader();
@@ -118,7 +122,7 @@ $(".editArticle").click(function(){
 	var id=$("#idU").val();
 	var category=$("#categoryU").val();
 	var description=$("#descriptionU").val();
-	var dimension=$("#dimensionU").val();
+	var dimension=$("#dimensionsU").val();
 	var discount=$("#discountU").val();
 	var name=$("#nameU").val();
 	var price=$("#priceU").val();
@@ -128,7 +132,7 @@ $(".editArticle").click(function(){
 	var uploadedUserId=$("#uploadedUserIdU").val();
 	var vendorId=$("#vendorIdU").val();
 	
-	var request={"request":{"id":id,"category":category,"description":description,"dimension":dimension,"discount":discount,"name":name,"price":price,
+	var request={"request":{"id":id,"category":category,"description":description,"dimensions":dimension,"discount":discount,"name":name,"price":price,
 	     "quantity":quantity,"sub_category":sub_category,"title":title,"uploadedUserId":uploadedUserId,"vendorId":vendorId
 	}}
 	
@@ -146,7 +150,8 @@ $(".editArticle").click(function(){
                 hideLoader();
                 if(response.code==200){
                	alert("Details Updated");
-                $('#myModal').modal('toggle');
+                //$('#myModal').modal('toggle');
+               	location.reload();
                }else{
                	alert("Opps Something went wrong");
                }           

@@ -62,12 +62,12 @@ public class ArticleController {
 			ad.setTitle(req.getRequest().getTitle());
 			ad.setSub_category(req.getRequest().getSub_category());
 			ad.setDescription(req.getRequest().getDescription());
-			ad.setDimensions(LLLUtils.getDimensionJson(req.getRequest().getCategory()));
+			ad.setDimensions(LLLUtils.getDimensionJson(req.getRequest().getDimensions()));
 			ad.setDiscount((req.getRequest().getDiscount()));
 			ad.setPrice(req.getRequest().getPrice());
 			ad.setQuantity(req.getRequest().getQuantity());
 			ad.setVendorId(req.getRequest().getVendorId());
-			//ad.setCategory(req.getRequest().getCategory());
+			ad.setCategory(req.getRequest().getCategory());
 			articleRepo.save(ad);
 		    resp.setResp(null);
 			resp.setMessage(ResponseCodes.SUCCESS_MSG);

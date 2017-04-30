@@ -1,11 +1,13 @@
 $(document).ready(function(){
-	alert("Haiiii")
+	loadUsers();
+	//alert("Haiiii")
 })
 
-app.controller('vendorSearch',function($scope,$http){
+app.controller('userSearch',function($scope,$http){
 	$http.get(getApi(Urls.GET_ALL_VENDORS))
-    .then(function(resp) {
-        $scope.vendors = resp.data.resp;
+    .then(function(response) {
+    	console.log(response.data);
+        $scope.vendors = response.data.resp;
     },httpFailure);
 })
 

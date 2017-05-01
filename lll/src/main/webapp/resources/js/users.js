@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	loadUsers();
+	loadVendorsDropDown();
 	//alert("Haiiii")
 })
 
@@ -70,3 +71,59 @@ $(".showModal").click(function(){
 	$("#myModal").modal();
 	$(".edit").hide();
 })
+
+$(".addAdmin").click(function(){
+	var  name=$("#name").val();
+	var address= $("#address").val();
+	var password=$("#pass2").val();
+	var vendorId=$("#vendorId").val();
+	
+	var pass1=$("#pass1").val();
+	var pass2=$("#pass2").val();
+
+	var phNo=$("#phNo").val();
+	var otherDetails=$("#otherDetails").val();
+	
+	if(pass1===pass2){
+		var req={"request":{"vendorId":vendorId,"name":name,"type":"ADMIN","address":address,"password":pass2,"mobileNo":phNo,"otherDetails":otherDetails}}
+		addAdmin(req)
+	}else{
+		alert("Password is not matching");
+	}
+	
+	
+})
+
+function addAdmin(req){
+	console.log(JSON.stringify(req));
+	$.ajax({
+        type: "POST",
+        data: req,
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        url: getApi(Urls.ADD_ADMIN),
+    })
+    .done(function(response){
+    	console.log(response);
+    	
+    })
+	
+//	 $.ajax({
+//	    	url: getApi(Urls.ADD_ADMIN),
+//	        type: 'POST',
+//	        data: req,
+//	        async: false,
+//	        success: function(data) {
+//	            hideLoader();
+//	            console.log(data);
+//	            if (data.code == 200) {
+//	                alert("Admin Added");
+//	            } else {
+//	                alert("Some error occurred Please try again");
+//	            }
+//	        }
+//	    });
+	
+}
+
+

@@ -102,10 +102,11 @@ public class UserController {
 				 if(vendorDetail!=null){
 					 userdetail.setId(vendorDetail.getId()+1);
 					 userdetail.setCreatedTime(new Timestamp(System.currentTimeMillis()));
+					 userdetail.setPassword(LLLUtils.getEncodedPassword(request.getRequest().getPassword()));
 					 //boolean b=sendOtp();
 					 //boolean b=sendMail();
 					 userRepo.save(userdetail);	
-					 //resp.setResp(userRepo.findAll());
+					 resp.setResp(null);
 					 resp.setMessage(ResponseCodes.SUCCESS_MSG);
 					 resp.setCode(ResponseCodes.SUCCESS);
 				 }
@@ -120,6 +121,10 @@ public class UserController {
 					resp.setResp(null);
 					resp.setMessage(ResponseCodes.SUCCESS_MSG);
 					resp.setCode(ResponseCodes.SUCCESS);
+				}else{
+					resp.setResp("Admin is not registered for this vendor Please register vendor");
+					resp.setMessage(ResponseCodes.FAILURE_MSG);
+					resp.setCode(ResponseCodes.FAILURE);
 				}
 			}
 			

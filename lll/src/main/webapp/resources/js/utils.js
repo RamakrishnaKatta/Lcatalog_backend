@@ -25,6 +25,9 @@ var Urls={
 		//ADD VENDOR
 		ADD_VENDOR:"web/vendor/vendor_reg",
 		
+		//ADD ADMIN
+		ADD_ADMIN:"web/user/register",
+		
 		//ADD ARTICLE
 		ADD_ARTICLE:"web/article/add_article",
 		

@@ -21,7 +21,7 @@
                   <div class="modal-content">
                      <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title"><b class="headerText">Add User</b></h4>
+                        <h4 class="modal-title"><b class="headerText">Add Admin</b></h4>
                      </div>
                      <div class="modal-body">
                         
@@ -33,25 +33,45 @@
                             </div>
                             </div>
                          </div>
+                         
                          <div class="row">
                             <div class="col-md-12">
                             <div class="form-group">
-                            <label for="name">Role :</label>
-                            <select class="form-control" id="sel1">
-							<option>User</option>
-							<option>Admin</option>
-							</select>
+                            <label for="name">Address :</label>
+                            <input type="text" class="form-control" id="address">
                             </div>
                             </div>
                          </div>
+                         
+                          <div class="row">
+                            <div class="col-md-12">
+                            <div class="form-group">
+                            <label for="name">Email :</label>
+                            <input type="text" class="form-control" id="email">
+                            </div>
+                            </div>
+                         </div>
+                         
                          <div class="row">
                             <div class="col-md-12">
                             <div class="form-group">
-                            <label for="name">Type :</label>
-                            <input type="text" class="form-control" id="type">
+                            <label for="name">Enter Password :</label>
+                            <input type="password" class="form-control" id="pass1">
                             </div>
                             </div>
                          </div>
+                         
+                         <div class="row">
+                            <div class="col-md-12">
+                            <div class="form-group">
+                            <label for="name">Re-enter Password :</label>
+                            <input type="text" class="form-control" id="pass2">
+                            </div>
+                            </div>
+                         </div>
+                         
+                         
+                         
                          <div class="row">
                             <div class="col-md-12">
                             <div class="form-group">
@@ -64,9 +84,8 @@
                             <div class="col-md-12">
                             <div class="form-group">
                             <label for="name">Vendor :</label>
-                            <select class="form-control" id="sel1">
-							<option>Shopper Stop</option>
-							<option>Home Stop</option>
+                            <select class="form-control" id="vendorId">
+							
 							</select>
                             </div>
                             </div>
@@ -82,7 +101,7 @@
                              
                      </div>
                      <div class="modal-footer">
-                        <div type="button" class="btn btn-sm btn-info add">Add</div>
+                        <div type="button" class="btn btn-sm btn-info addAdmin">Add</div>
                         <div type="button" class="btn btn-sm btn-info edit">Edit</div>
                      </div>
                   </div>
@@ -147,7 +166,7 @@
                 <div class=" tableSection sectionBgWhite">
                   <h3 class="box-title">Users</h3>
                   <div class="box-tools pull-right" style="margin-top: -40px; !important">
-                      <button class="btn btn-info showModal">Add User</button>                 
+                      <button class="btn btn-info showModal">Add Admin</button>                 
                         <!--  <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button> -->
                   </div>
                 </div><!-- /.box-header -->

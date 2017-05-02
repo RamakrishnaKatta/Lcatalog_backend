@@ -8,6 +8,14 @@ import com.lll.util.LLLUtils;
 @Component
 @Qualifier("Response")
 public class Response {
+	
+	private static final Response response = new Response(); 
+	
+	public static Response getInstance(){
+		return response;
+	}
+	
+	private Response(){}
      
 	private Object resp;
 	private int code;
@@ -40,5 +48,14 @@ public class Response {
 		}
 		return "ERROR - JSON Parsing";
 	}
+	
+	public Response setResponse(Object resp, int code, String message) {
+		Response.getInstance().setCode(code);
+		Response.getInstance().setResp(resp);
+		Response.getInstance().setMessage(message);
+		return response;
+	}
+	
+	
 	
 } 

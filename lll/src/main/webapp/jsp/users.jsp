@@ -65,7 +65,7 @@
                             <div class="col-md-12">
                             <div class="form-group">
                             <label for="name">Re-enter Password :</label>
-                            <input type="text" class="form-control" id="pass2">
+                            <input type="password" class="form-control" id="pass2">
                             </div>
                             </div>
                          </div>

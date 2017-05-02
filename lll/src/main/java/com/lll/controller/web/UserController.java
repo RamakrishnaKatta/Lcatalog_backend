@@ -26,10 +26,10 @@ import com.lll.util.LLLUtils;
 @RequestMapping("web/user")
 public class UserController {
 	
-	@Autowired
-	@Qualifier("Response")
-	private Response resp;
-	
+    @Autowired
+    @Qualifier("Response")
+    private Response resp;
+		
 	@Autowired
 	private UserRepo userRepo;
 	
@@ -39,31 +39,21 @@ public class UserController {
 	@RequestMapping(value="all",method=RequestMethod.GET)
 	public Response getAllVendors(){
 		try {
-		    resp.setResp(userRepo.findAll());
-			resp.setMessage(ResponseCodes.SUCCESS_MSG);
-			resp.setCode(ResponseCodes.SUCCESS);
+		    return	Response.getInstance().setResponse(userRepo.findAll(), ResponseCodes.SUCCESS, ResponseCodes.SUCCESS_MSG);
 		} catch (Exception e) {
 			e.printStackTrace();
-			resp.setResp(e.getMessage());
-			resp.setMessage(ResponseCodes.FAILURE_MSG);
-			resp.setCode(ResponseCodes.FAILURE);
+			return Response.getInstance().setResponse(e.getMessage(), ResponseCodes.FAILURE, ResponseCodes.FAILURE_MSG);
 		}
-		return resp;
 	}
 	
 	@RequestMapping(value="by",method=RequestMethod.GET)
 	public Response getUserId(@RequestParam("email") String email){
 		try {
-		    resp.setResp(userRepo.getUserByEmail(email));
-			resp.setMessage(ResponseCodes.SUCCESS_MSG);
-			resp.setCode(ResponseCodes.SUCCESS);
+		    return	Response.getInstance().setResponse(userRepo.getUserByEmail(email), ResponseCodes.SUCCESS, ResponseCodes.SUCCESS_MSG);
 		} catch (Exception e) {
 			e.printStackTrace();
-			resp.setResp(e.getMessage());
-			resp.setMessage(ResponseCodes.FAILURE_MSG);
-			resp.setCode(ResponseCodes.FAILURE);
+			return Response.getInstance().setResponse(e.getMessage(), ResponseCodes.FAILURE, ResponseCodes.FAILURE_MSG);
 		}
-		return resp;
 	}
 	
 	@RequestMapping(value="update_password",method=RequestMethod.POST)
@@ -72,16 +62,12 @@ public class UserController {
 			UserDetail userDetail=userRepo.getUserByEmail(req.getRequest().getEmail());
 			userDetail.setPassword(LLLUtils.getEncodedPassword(req.getRequest().getNewPassword()));
 			userRepo.save(userDetail);
-		    resp.setResp(null);
-			resp.setMessage(ResponseCodes.SUCCESS_MSG);
-			resp.setCode(ResponseCodes.SUCCESS);
+		    return	Response.getInstance().setResponse(null, ResponseCodes.SUCCESS, ResponseCodes.SUCCESS_MSG);
 		} catch (Exception e) {
 			e.printStackTrace();
-			resp.setResp(e.getMessage());
-			resp.setMessage(ResponseCodes.FAILURE_MSG);
-			resp.setCode(ResponseCodes.FAILURE);
+			return Response.getInstance().setResponse(e.getMessage(), ResponseCodes.FAILURE, ResponseCodes.FAILURE_MSG);
 		}
-		return resp;
+		
 	}
 	
 	@RequestMapping(value="register",method=RequestMethod.POST)
@@ -141,25 +127,16 @@ public class UserController {
 	public Response userLogin(@RequestBody Request<LoginRequest> req){
 		try {
 			UserDetail userdetail=userRepo.checkLogin(req.getRequest().getEmail(), LLLUtils.getEncodedPassword(req.getRequest().getPassword()));
-		    
 			if(userdetail!=null){
 				userdetail.setPassword(null);
-				resp.setResp(userdetail);
-				resp.setMessage(ResponseCodes.SUCCESS_MSG);
-				resp.setCode(ResponseCodes.SUCCESS);
+			    return Response.getInstance().setResponse(userdetail, ResponseCodes.SUCCESS, ResponseCodes.SUCCESS_MSG);
 			}else{
-				resp.setResp("No details Found");
-				resp.setMessage(ResponseCodes.FAILURE_MSG);
-				resp.setCode(ResponseCodes.FAILURE);
+				return Response.getInstance().setResponse("No Details Found", ResponseCodes.FAILURE, ResponseCodes.FAILURE_MSG);
 			}
-
 		} catch (Exception e) {
 			e.printStackTrace();
-			resp.setResp(e.getMessage());
-			resp.setMessage(ResponseCodes.FAILURE_MSG);
-			resp.setCode(ResponseCodes.FAILURE);
+			return Response.getInstance().setResponse(e.getMessage(), ResponseCodes.FAILURE, ResponseCodes.FAILURE_MSG);
 		}
-		return resp;
 	}
 
 }

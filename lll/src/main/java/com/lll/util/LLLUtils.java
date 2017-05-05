@@ -8,6 +8,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.security.MessageDigest;
 import java.util.Random;
+import java.util.UUID;
 
 import org.apache.commons.io.FilenameUtils;
 import org.apache.http.HttpResponse;
@@ -133,8 +134,9 @@ public static String uploadObject(MultipartFile file,String objId){
 		
 		String fileName = file.getOriginalFilename();
 	    String filePath=System.getProperty("catalina.base")+File.separator+"webapps"+File.separator+"articlesImgs" + File.separator;
-		String fileNameTS=String.valueOf(System.currentTimeMillis()+LLLUtils.gen());
-		String pathForDb=File.separator+"articlesImgs"+File.separator+fileNameTS+ "."+FilenameUtils.getExtension(fileName);
+		//String fileNameTS=String.valueOf(System.currentTimeMillis()+LLLUtils.gen());
+		String fileNameTS=UUID.randomUUID().toString().substring(0, 18);
+	    String pathForDb=File.separator+"articlesImgs"+File.separator+fileNameTS+ "."+FilenameUtils.getExtension(fileName);
 		String documentLink = filePath +fileNameTS+ "." + FilenameUtils.getExtension(fileName);
 		
 		try {

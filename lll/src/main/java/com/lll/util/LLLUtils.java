@@ -99,7 +99,8 @@ public static String uploadObject(MultipartFile file,String objId){
 		String fileName = file.getOriginalFilename();
 	    String filePath=System.getProperty("catalina.base")+File.separator+"webapps"+File.separator+"models" + File.separator;
 		String fileNameTS=String.valueOf(System.currentTimeMillis()+LLLUtils.gen());
-		String pathForDb=File.separator+"models"+File.separator+objId+ "."+FilenameUtils.getExtension(fileName);
+	    //String fileNameTS=UUID.randomUUID().toString().substring(0, 18);
+	    String pathForDb=File.separator+"models"+File.separator+objId+ "."+FilenameUtils.getExtension(fileName);
 		String documentLink = filePath +fileNameTS+ "." + FilenameUtils.getExtension(fileName);
 		
 		try {
@@ -130,7 +131,6 @@ public static String uploadObject(MultipartFile file,String objId){
 		
 		InputStream inputStream = null;
 		OutputStream outputStream = null;
-		
 		
 		String fileName = file.getOriginalFilename();
 	    String filePath=System.getProperty("catalina.base")+File.separator+"webapps"+File.separator+"articlesImgs" + File.separator;

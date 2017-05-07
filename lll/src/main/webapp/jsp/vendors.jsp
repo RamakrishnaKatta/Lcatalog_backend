@@ -13,9 +13,8 @@
      <%@ include file="header.jsp" %>
      <%@ include file="side-menu.jsp" %>
     <div class="content-wrapper" >
-        <section class="content">
-        
-        <!-- ADD VENDOR MODAL -->
+    
+     <!-- ADD VENDOR MODAL -->
            <div class="modal fade bs-example-modal-lg" id="myModal" >
                <div class="modal-dialog modal-lg">
                   <div class="modal-content">
@@ -49,6 +48,15 @@
                             </div>
                             </div>
                          </div>
+                         
+                         <div class="row">
+                            <div class="col-md-12">
+                            <div class="form-group">
+                            <label for="name">Code :</label>
+                            <input type="text" class="form-control"  name="code" id="code">
+                            </div>
+                            </div>
+                         </div>
 
                          <div class="row">
                             <div class="col-md-12">
@@ -69,53 +77,12 @@
                      </div>
                   </div>
                </div></div>
-        
-          
-               
-           <div style="padding:7px !important"></div>     
+    
+     <div style="padding:14px !important"></div>
+         
+        <section class="content">
            
-         <div class="row" style="margin:0px !important;"> 
-                  <div class="box  panel box box-info accessPermission" style="box-shadow: 0px 2px 10px #868282;">
-                      <div class="box-header" data-widget="collapse-header">
-                          <h2 class="box-title"><b>Article Search Filter</b></h2>
-                          <div class="box-tools pull-right">
-                              <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                          </div>
-                      </div><!-- /.box-header -->
-                      <div class="box-body">
-                         
-                           <div class="row">
-                              <div class="col-md-4">
-                              <div class="form-group">
-                              <h5 class="box-title">Name</h5>
-                              <input type="text" class="form-control" id="role_id" required data-msg="Please Enter Name">
-                              </div>
-                              </div>
-                             
-                              <div class="col-md-4">
-                              <div class="form-group">
-                              <h5 class="box-title">Type</h5>
-                              <input type="text" class="form-control" id="role_name" required data-msg="Please Select Type">
-                              </div>
-                              </div>
-                              
-                              <div class="col-md-4">
-                              <div class="form-group">
-                              <h5 class="box-title">Location</h5>
-                              <input type="text" class="form-control" id="role_name" required data-msg="Please Enter Location">
-                              </div>
-                              </div>
-                             
-                           </div> 
-                            <div class="form-group float-right" style="margin-right: 14px;">
-                            <div class="btn btn-info" id="deleteSubmit" value="Search"/> 
-                            </div>
-                      </div><!-- /.box-body -->
-              </div><!-- /.box -->
-          </div>
-           
-           <div style="padding:7px !important"></div>
-          
+      
            <div class="row">
             <div class="col-md-12">
               <div class="box box-info main_box">

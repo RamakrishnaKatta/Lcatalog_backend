@@ -11,7 +11,9 @@ $("form#data").submit(function() {
             return false; 
  });
 
-
+function deleteVendor(id){
+	alert(id);
+}
 
 function uploadFile(formData) {
     showLoader();
@@ -24,7 +26,7 @@ function uploadFile(formData) {
             hideLoader();
             console.log(data);
             if (data.code == 200) {
-                alert("Uploaded succesfully");
+                alert("Vendor Added");
                 location.reload();
             } else {
                 alert("Some error occurred while uploading material. Please try again");
@@ -65,8 +67,14 @@ function loadVendors(){
                  "sTitle": "Name",
                  "mData": "name"
              },{
-                 "sTitle": "Location",
-                 "mData": "logo"
+                 "sTitle": "Code",
+                 "mData": "code"
+             },{
+                 "sTitle": "logo",
+                 "mData": "logo",
+                 "mRender": function(data,type,row){
+                	 return "<img src='"+window.location.origin+data+"' height='42' width='42'>";
+                 }
              },{
                  "sTitle": "Type",
                  "mData": "type"
@@ -74,13 +82,51 @@ function loadVendors(){
                      "sTitle": "Action",
                      "mData": "id",
                      "mRender": function(data, type, row) {
-                        return "<button class= 'glyphicon glyphicon-trash delBtn btn btn-default' title='Delete Route'><button class='glyphicon glyphicon-zoom-in viewResult btn btn-default' title='View Results'></button>";
+                        return "<button class= 'glyphicon glyphicon-trash delBtn btn btn-default' title='Delete Route'>";
                      }
                 } ]
          })
     
     })
+    
+    var table = $('#myTable').DataTable();
+
+    $('#myTable tbody').on( 'click', '.delBtn', function () {
+    var con=confirm("Do you really want to delete ??");
+    console.log(con);
+    if(con==true){
+     var data = table.row( $(this).parents('tr') ).data();
+     deleteVendor(data.id);	
+    }
+   
+    }); 
 }
+
+function deleteVendor(id){
+    showLoader();
+    //console.log(photo.split("/")[]);
+    $.ajax({
+                type: "GET",
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                url: getApi(Urls.DEL_VENDOR)+id
+            })
+            .done(function(response)  {
+                hideLoader();
+                if(response.code==200){
+                  alert("Vendor deleted");
+                  location.reload();
+                }else{
+                  alert("Opps Something Went Wrong");
+                }
+
+            }).fail(function(jqXHR, textStatus, errorThrown) {
+                //checkSessionTimeout(jqXHR, textStatus, errorThrown);
+                alert("Opps something went wrong");
+                hideLoader();
+            })
+}
+
 
 $(".showModal").click(function(){
 	$("#myModal").modal();

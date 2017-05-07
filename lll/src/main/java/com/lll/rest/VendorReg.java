@@ -7,7 +7,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class VendorReg {
 
     private String name;
-    private String type;
+    private String type,code;
 	private String id;
 	private MultipartFile file;
 	
@@ -34,6 +34,12 @@ public class VendorReg {
 	}
 	public void setFile(MultipartFile file) {
 		this.file = file;
+	}
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
 	}
 	
 	

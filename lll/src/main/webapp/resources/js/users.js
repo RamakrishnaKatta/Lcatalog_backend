@@ -118,22 +118,7 @@ function addAdmin(req){
     	
     })
 	
-//	 $.ajax({
-//	    	url: getApi(Urls.ADD_ADMIN),
-//	        type: 'POST',
-//	        data: req,
-//	        async: false,
-//	        success: function(data) {
-//	            hideLoader();
-//	            console.log(data);
-//	            if (data.code == 200) {
-//	                alert("Admin Added");
-//	            } else {
-//	                alert("Some error occurred Please try again");
-//	            }
-//	        }
-//	    });
-	
+
 }
 
 

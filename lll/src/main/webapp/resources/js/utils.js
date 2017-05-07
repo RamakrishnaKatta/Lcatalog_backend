@@ -35,7 +35,10 @@ var Urls={
 		GET_VENDOR_ID:"",
 		
 		//UPDATE ARTICLE
-		UPDATE_ARTICLE:"web/article/update"
+		UPDATE_ARTICLE:"web/article/update",
+		
+		//DEL VENDOR
+		DEL_VENDOR:"web/vendor/delete?id="
 }
 
 function getApi(name){

@@ -22,7 +22,7 @@ public class VendorDetail implements Serializable {
 
 	private String logo;
 
-	private String name;
+	private String name,code;
 
 	@Column(name="other_details")
 	private String otherDetails;
@@ -54,6 +54,14 @@ public class VendorDetail implements Serializable {
 
 	public void setLogo(String logo) {
 		this.logo = logo;
+	}
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
 	}
 
 	public String getName() {

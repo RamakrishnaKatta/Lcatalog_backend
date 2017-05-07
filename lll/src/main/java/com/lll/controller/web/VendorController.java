@@ -63,31 +63,32 @@ public class VendorController {
 	@RequestMapping(value="all",method=RequestMethod.GET)
 	public Response getAllVendors(){
 		try {
-		    resp.setResp(vendorRepo.findAll());
-			resp.setMessage(ResponseCodes.SUCCESS_MSG);
-			resp.setCode(ResponseCodes.SUCCESS);
+			return Response.getInstance().setResponse(vendorRepo.findAll(), ResponseCodes.SUCCESS, ResponseCodes.SUCCESS_MSG);
 		} catch (Exception e) {
 			e.printStackTrace();
-			resp.setResp(e.getMessage());
-			resp.setMessage(ResponseCodes.FAILURE_MSG);
-			resp.setCode(ResponseCodes.FAILURE);
+			return Response.getInstance().setResponse(e.getMessage(), ResponseCodes.FAILURE, ResponseCodes.FAILURE_MSG);
 		}
-		return resp;
 	}
 	
 	@RequestMapping(value="by",method=RequestMethod.GET)
 	public Response getVendorById(@RequestParam("id") int id){
 		try {
-		    resp.setResp(vendorRepo.findOne(id));
-			resp.setMessage(ResponseCodes.SUCCESS_MSG);
-			resp.setCode(ResponseCodes.SUCCESS);
+			return Response.getInstance().setResponse(vendorRepo.findOne(id), ResponseCodes.SUCCESS, ResponseCodes.SUCCESS_MSG);
 		} catch (Exception e) {
 			e.printStackTrace();
-			resp.setResp(e.getMessage());
-			resp.setMessage(ResponseCodes.FAILURE_MSG);
-			resp.setCode(ResponseCodes.FAILURE);
+			return Response.getInstance().setResponse(e.getMessage(), ResponseCodes.FAILURE, ResponseCodes.FAILURE_MSG);
 		}
-		return resp;
+	}
+	
+	@RequestMapping(value="delete",method=RequestMethod.GET)
+	public Response deleteVendorById(@RequestParam("id") int id){
+		try {
+			vendorRepo.delete(id);
+			return Response.getInstance().setResponse(null, ResponseCodes.SUCCESS, ResponseCodes.SUCCESS_MSG);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return Response.getInstance().setResponse(e.getMessage(), ResponseCodes.FAILURE, ResponseCodes.FAILURE_MSG);
+		}
 	}
 
     @RequestMapping(value="vendor_reg")
@@ -119,29 +120,14 @@ public class VendorController {
 				vendorDetail.setId(Integer.valueOf(req.getId()));
 				vendorDetail.setName(req.getName());
 				vendorDetail.setType(req.getType());
+				vendorDetail.setCode(req.getCode());
 				vendorDetail.setLogo(pathForDb);
 				vendorRepo.save(vendorDetail);
 
-			} catch (IOException e) {
-				e.printStackTrace();
-				resp.setCode(ResponseCodes.FAILURE);
-				resp.setMessage("FILE_UPD_FAILED");
-				resp.setResp(e.getMessage());
-			} catch (RuntimeException e) {
-				e.printStackTrace();
-				resp.setCode(ResponseCodes.FAILURE);
-				resp.setMessage("DB_UPDATE_FAILED");
-				resp.setResp(e.getMessage());
 			} catch (Exception e) {
-				resp.setCode(ResponseCodes.FAILURE);
-				resp.setMessage("UNKNOWN_ERROR");
-				resp.setResp(e.getMessage());
+				return Response.getInstance().setResponse(e.getMessage(), ResponseCodes.FAILURE, ResponseCodes.FAILURE_MSG);
 			}
-			resp.setCode(ResponseCodes.SUCCESS);
-			resp.setMessage(ResponseCodes.SUCCESS_MSG);
-			resp.setResp(null);
-			return resp;
-    
+			return  Response.getInstance().setResponse(null, ResponseCodes.SUCCESS, ResponseCodes.SUCCESS_MSG);
 	}
 }
 

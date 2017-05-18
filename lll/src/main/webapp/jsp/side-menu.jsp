@@ -84,6 +84,21 @@
       </li>
       
       <li class="treeview">
+        <a href="#">
+          <i class="glyphicon glyphicon-send"></i>
+          <span>Notifications</span>
+        </a>
+         <ul class="treeview-menu">
+            <li>
+              <a href="${host}/notifications/send">
+                <i class="glyphicon glyphicon-record"></i>
+                 Send Notifications
+              </a>
+            </li>
+        </ul> 
+      </li>
+      
+      <li class="treeview">
         <a href="http://lucidleanlabs.com">
           <i class="glyphicon glyphicon-question-sign"></i>
           <span>About Us</span>

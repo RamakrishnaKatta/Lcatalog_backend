@@ -42,5 +42,10 @@ public class BindViewController {
 		  return new ModelAndView("vendorRequests");
 	  }
 	  
+	  @RequestMapping(value="notifications/send",method=RequestMethod.GET)
+	  public ModelAndView getNotifications(){
+		  return new ModelAndView("sendNotify");
+	  }
+	  
 	  
 }

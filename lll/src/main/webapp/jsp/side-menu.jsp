@@ -94,6 +94,10 @@
                 <i class="glyphicon glyphicon-record"></i>
                  Send Notifications
               </a>
+              <a href="${host}/notifications/get">
+                <i class="glyphicon glyphicon-record"></i>
+                 Get Notifications
+              </a>
             </li>
         </ul> 
       </li>

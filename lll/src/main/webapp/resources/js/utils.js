@@ -38,7 +38,13 @@ var Urls={
 		UPDATE_ARTICLE:"web/article/update",
 		
 		//DEL VENDOR
-		DEL_VENDOR:"web/vendor/delete?id="
+		DEL_VENDOR:"web/vendor/delete?id=",
+		
+		//ADD NOTIFICATION
+		SEND_NOTIFICATION:"app/notify/send",
+		
+		//GET NOTIFICATION
+		GET_NOTIFICATION:"app/notify/get_all"
 }
 
 function getApi(name){

@@ -43,10 +43,6 @@ public class ArticleController {
 	@Autowired
 	private ArticleRepo articleRepo;
 	
-//	@PostConstruct
-//	public void makeDir() {
-//		new File(System.getProperty("user.home") + File.separator + "articlesImgs").mkdirs();
-//	}
 	
 	@PostConstruct
 	public void makeDir() {

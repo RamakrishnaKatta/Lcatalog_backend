@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class BindViewController {
+public class ViewController {
 	
      @RequestMapping("/login")
 	 public String doLogin(){
@@ -43,8 +43,13 @@ public class BindViewController {
 	  }
 	  
 	  @RequestMapping(value="notifications/send",method=RequestMethod.GET)
-	  public ModelAndView getNotifications(){
+	  public ModelAndView sendNotifications(){
 		  return new ModelAndView("sendNotify");
+	  }
+	  
+	  @RequestMapping(value="notifications/get",method=RequestMethod.GET)
+	  public ModelAndView getNotifications(){
+		  return new ModelAndView("getNotify");
 	  }
 	  
 	  

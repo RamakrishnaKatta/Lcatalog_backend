@@ -74,8 +74,7 @@ public class LLLUtils {
 
 		System.out.println(new JsonObject());
 		
-		/*Gson gson=new Gson();
-		return gson.toJson(rd);*/
+		
 	}
 	
 	public static String getEncodedPassword(String password) throws Exception {
@@ -137,6 +136,40 @@ public static String uploadObject(MultipartFile file,String objId){
 		//String fileNameTS=String.valueOf(System.currentTimeMillis()+LLLUtils.gen());
 		String fileNameTS=UUID.randomUUID().toString().substring(0, 18);
 	    String pathForDb=File.separator+"articlesImgs"+File.separator+fileNameTS+ "."+FilenameUtils.getExtension(fileName);
+		String documentLink = filePath +fileNameTS+ "." + FilenameUtils.getExtension(fileName);
+		
+		try {
+		inputStream = file.getInputStream();
+		File newFile = new File(documentLink);
+		outputStream = new FileOutputStream(newFile);
+		int read = 0;
+		byte[] bytes = new byte[1024];
+		while ((read = inputStream.read(bytes)) != -1) {
+			outputStream.write(bytes, 0, read);
+		}
+		outputStream.close();
+		return pathForDb;
+		} catch (IOException e) {
+			e.printStackTrace();
+			return null;	
+		} catch (RuntimeException e) {
+			e.printStackTrace();
+			return null;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+public static String uploadNotificationFile(MultipartFile file){
+		
+		InputStream inputStream = null;
+		OutputStream outputStream = null;
+		
+		String fileName = file.getOriginalFilename();
+	    String filePath=System.getProperty("catalina.base")+File.separator+"webapps"+File.separator+"app-notify-imgs" + File.separator;
+		String fileNameTS=UUID.randomUUID().toString().substring(0, 18);
+	    String pathForDb=File.separator+"app-notify-imgs"+File.separator+fileNameTS+ "."+FilenameUtils.getExtension(fileName);
 		String documentLink = filePath +fileNameTS+ "." + FilenameUtils.getExtension(fileName);
 		
 		try {

@@ -36,66 +36,30 @@
      <div style="padding:14px !important"></div>
          
         <section class="content">
-           
-      
+    
+           <div style="padding:7px !important"></div>     
+ 
+           <div style="padding:7px !important"></div>
+          
            <div class="row">
             <div class="col-md-12">
               <div class="box box-info main_box">
                 <div class=" tableSection sectionBgWhite">
-                  <h3 class="box-title">Send Notification</h3>
-                  <div class="box-tools pull-right" style="margin-top: -40px; !important">              
+                  <h3 class="box-title">Get Notifications</h3>
+                  <div class="box-tools pull-right" style="margin-top: -40px; !important">
+                      <!-- <button class="btn btn-info showModal">Add Article</button>   -->               
                         <!--  <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button> -->
                   </div>
                 </div><!-- /.box-header -->
                 <div class=" tableSection sectionBgWhite">
-               <br><br>    
-                         <form role="form" id="data"  method="post" enctype="multipart/form-data">
-                        <div class="row">
-                            <div class="col-md-12">
-                            <div class="form-group">
-                            <label for="name">Title :</label>
-                            <input type="text" class="form-control" name="title" id="id">
-                            </div>
-                            </div>
-                         </div>
-                         <div class="row">
-                            <div class="col-md-12">
-                            <div class="form-group">
-                            <label for="name">Message :</label>
-                            <input type="text" class="form-control"  name="msg" id="name">
-                            </div>
-                            </div>
-                         </div>
-                         <div class="row">
-                            <div class="col-md-12">
-                            <div class="form-group">
-                            <label for="name">Image :</label>
-                            <input type="file" class="form-control" name="file" id="file">
-                            </div>
-                            </div>
-                    
-                         </div>
-                         
-                         <div class="row">
-                            <div class="col-md-8">
-                            </div>
-                            <div class="col-md-4">
-                            <input type="submit" class="btn btn-primary float-right" value="Send">
-                            </div>
-                            </div>
-                         
-                         </input>
-                         </form>
                 
-                   
-                
+                    <table id="myTable" class="stripe table table-bordered table-striped" ></table>
+                </div>
                   
                 </div><!-- /.box-body -->
                
               </div>
             </div>
-            </div>
-            
         </section>
         </div>
     
@@ -110,7 +74,7 @@
 <script type="text/javascript"
   src="<c:url value="/resources/js/utils.js" />"></script>
 <script type="text/javascript"
-  src="<c:url value="/resources/js/notifications.js" />"></script>
-
+  src="<c:url value="/resources/js/getNotify.js" />"></script>
+    
   
   

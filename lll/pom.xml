@@ -266,6 +266,8 @@
 				<configuration>
 					<warSourceDirectory>target</warSourceDirectory>
 					<failOnMissingWebXml>false</failOnMissingWebXml>
+					<warName>${name}</warName>
+             		<outputDirectory>/opt/tomcat7/webapps</outputDirectory>
 				</configuration>
 			</plugin>
 			</plugins>

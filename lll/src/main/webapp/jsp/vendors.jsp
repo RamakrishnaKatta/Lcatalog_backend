@@ -77,6 +77,39 @@
                      </div>
                   </div>
                </div></div>
+               
+               <div class="modal fade bs-example-modal-lg" id="myUpdateModal" >
+               <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title"><b class="headerText">Update Vendor</b></h4>
+                     </div>
+                     <div class="modal-body">
+                        <form role="form" id="data"  method="post" enctype="multipart/form-data">
+                      
+                       <input type="hidden" class="form-control"  id="idU">
+                     
+                         
+                       
+                        <div class="row">
+                            <div class="col-md-8"></div>
+                            <div class="col-md-2">
+                            <button type="button" class="btn btn-sm btn-info edit">Edit</button>
+                            </div>
+                            <div class="col-md-2">
+                            <button type="button" class="btn btn-sm btn-info editArticle">Update</button>
+                            </div>
+                         </div>
+                         
+                         </form>
+                           
+                     </div>
+                     <div class="modal-footer">
+                       
+                    </div>
+                  </div>
+               </div></div>
     
      <div style="padding:14px !important"></div>
          

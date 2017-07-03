@@ -82,10 +82,15 @@ function loadVendors(){
                      "sTitle": "Action",
                      "mData": "id",
                      "mRender": function(data, type, row) {
-                        return "<button class= 'glyphicon glyphicon-trash delBtn btn btn-default' title='Delete Route'>";
+                        return "<button class= 'glyphicon glyphicon-trash delBtn btn btn-default' title='Delete Route'><button class='glyphicon glyphicon-zoom-in viewResult btn btn-default' title='View Results'></button>";
                      }
                 } ]
          })
+         
+         $(".viewResult").click(function(){
+	$("#myUpdateModal").modal();
+	$(".edit").hide();
+})
     
     })
     
@@ -121,7 +126,6 @@ function deleteVendor(id){
                 }
 
             }).fail(function(jqXHR, textStatus, errorThrown) {
-                //checkSessionTimeout(jqXHR, textStatus, errorThrown);
                 alert("Opps something went wrong");
                 hideLoader();
             })
@@ -132,3 +136,4 @@ $(".showModal").click(function(){
 	$("#myModal").modal();
 	$(".edit").hide();
 })
+

@@ -102,7 +102,7 @@ function loadUsers(){
                      "mRender": function(data, type, row) {
                         return "<button class= 'glyphicon glyphicon-trash delBtn btn btn-default' title='Delete Route'><button class='glyphicon glyphicon-zoom-in viewResult btn btn-default' title='View Results'></button>";
                      }
-                }]
+              }]
          })
          
          var table = $('#myTable').DataTable();

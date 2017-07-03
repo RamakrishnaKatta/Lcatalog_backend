@@ -31,6 +31,7 @@ import com.lll.model.FileLink;
 import com.lll.model.UploadedFile;
 import com.lll.model.VendorDetail;
 import com.lll.repo.VendorRepo;
+import com.lll.rest.Request;
 import com.lll.rest.Response;
 import com.lll.rest.ResponseCodes;
 import com.lll.rest.VendorReg;
@@ -59,6 +60,17 @@ public class VendorController {
 	}
    // String filePath=System.getProperty("catalina.base")+File.separator+"webapps/vendorLogos" + File.separator;
 
+	
+	@RequestMapping(value="update",method=RequestMethod.POST)
+	public Response vendorUpdate(@RequestBody Request<VendorDetail> req){
+		try {
+			vendorRepo.save(req.getRequest());
+			return Response.getInstance().setResponse(null, ResponseCodes.SUCCESS, ResponseCodes.SUCCESS_MSG);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return Response.getInstance().setResponse(e.getMessage(), ResponseCodes.FAILURE, ResponseCodes.FAILURE_MSG);
+		}
+	}
 	
 	@RequestMapping(value="all",method=RequestMethod.GET)
 	public Response getAllVendors(){

@@ -11,5 +11,8 @@ public interface ArticleRepo extends JpaRepository<ArticleDetail, String> {
 	
 	@Query(value="SELECT * FROM `article_details` WHERE `vendor_id`=?1", nativeQuery=true)
 	List<ArticleDetail> getArticledetailByVendorId(int vendorId);
+	
+	@Query(value="SELECT * FROM `article_details` limit ?1,?2", nativeQuery=true)
+	List<ArticleDetail> getArticlePagination(int from,int count);
 
 }

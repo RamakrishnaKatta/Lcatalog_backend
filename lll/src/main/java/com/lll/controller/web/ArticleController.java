@@ -79,9 +79,9 @@ public class ArticleController {
 	
 	
 	@RequestMapping(value="all",method=RequestMethod.GET)
-	public Response getAllArticles(){
+	public Response getAllArticles(@RequestParam("from")  int from,@RequestParam("count")  int count){
 		try {
-			List<ArticleDetail> articles=articleRepo.findAll();
+			List<ArticleDetail> articles=articleRepo.getArticlePagination(from, count);
 			for(ArticleDetail articleDetail:articles){			
 				articleDetail.setDimension(new Gson().fromJson(articleDetail.getDimensions(), Dimension.class));
 			    articleDetail.setImages(new Gson().fromJson(articleDetail.getImg(), ArticleImages.class));

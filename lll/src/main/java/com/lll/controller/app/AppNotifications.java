@@ -89,8 +89,7 @@ public class AppNotifications {
 			notification.setTitle(req.getTitle());
 			
 			List<UserDevice> userDevices=userDeviceRepo.findAll();
-			for(UserDevice userdevice : userDevices){
-				
+			for(UserDevice userdevice : userDevices){		
 				try {
 					Object notifyResp=FCM.send_FCM_Notification(userdevice.getTokenId(), masterConfigRepo.findOne(101).getNotifyServerKey(),req.getTitle(), req.getMsg());
 				    System.out.println(notifyResp);

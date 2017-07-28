@@ -81,6 +81,7 @@ public class ArticleController {
 	@RequestMapping(value="all",method=RequestMethod.GET)
 	public Response getAllArticles(@RequestParam("from")  int from,@RequestParam("count")  int count){
 		try {
+			long total=articleRepo.count();
 			List<ArticleDetail> articles=articleRepo.getArticlePagination(from, count);
 			for(ArticleDetail articleDetail:articles){			
 				articleDetail.setDimension(new Gson().fromJson(articleDetail.getDimensions(), Dimension.class));
@@ -89,7 +90,7 @@ public class ArticleController {
 			    articleDetail.setImg(null);
 			}
 		    resp.setResp(articles);
-			resp.setMessage(ResponseCodes.SUCCESS_MSG);
+			resp.setMessage(Long.toString(total));
 			resp.setCode(ResponseCodes.SUCCESS);
 		} catch (Exception e) {
 			e.printStackTrace();

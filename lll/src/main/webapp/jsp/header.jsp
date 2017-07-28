@@ -46,10 +46,10 @@
       <c:url value="/resources/js/jquery-2.1.1.min.js" />
       "></script>
       
-      <script type="text/javascript"
+     <%--  <script type="text/javascript"
       src="
       <c:url value="/resources/js/angular.js" />
-      "></script>
+      "></script>  --%>
     
      
       <script type="text/javascript"
@@ -87,7 +87,25 @@
         <link
          href="<c:url value="/resources/css/jquery.datetimepicker.css" />"
          rel="stylesheet" type="text/css" /> 
+         
+          <link
+         href="<c:url value="https://canvasjs.com/assets/css/jquery-ui.1.11.2.min.css" />"
+         rel="stylesheet" type="text/css" /> 
+         
+         <script type="text/javascript"
+      src="
+      <c:url value="https://canvasjs.com/assets/script/jquery-ui.1.11.2.min.js" />
+      "></script>
+      
+      <script type="text/javascript"
+      src="
+      <c:url value="https://canvasjs.com/assets/script/jquery.canvasjs.min.js" />
+      "></script>
+                
+         
       </head>
+      
+      
    <body class="sidebar-mini skin-blue" style="position:relative;">
       <c:set var="host" value="${pageContext.request.contextPath}"></c:set>
       <header class="main-header">

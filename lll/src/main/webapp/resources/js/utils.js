@@ -54,7 +54,7 @@ function getApi(name){
 
 /****************** Angular Module Initialisation **********************/
 
-var app=angular.module("lll",[]);
+//var app=angular.module("lll",[]);
 
 /****************** Show loader on page **********************/
 function showLoader() {

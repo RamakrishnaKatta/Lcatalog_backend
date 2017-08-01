@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -41,6 +42,8 @@ import com.lll.rest.VendorReg;
 @Controller
 @RequestMapping("web/vendor")
 public class VendorController {
+	
+	private static final Logger LOG = Logger.getLogger(ArticleController.class);
 	
 	@Autowired
 	@Qualifier("Response")
@@ -75,8 +78,10 @@ public class VendorController {
 	@RequestMapping(value="all",method=RequestMethod.GET)
 	public Response getAllVendors(){
 		try {
+			LOG.debug("GETTING ALL VENDOR");
 			return Response.getInstance().setResponse(vendorRepo.findAll(), ResponseCodes.SUCCESS, ResponseCodes.SUCCESS_MSG);
 		} catch (Exception e) {
+			LOG.error("USER-EXCEPTION : ", e);
 			e.printStackTrace();
 			return Response.getInstance().setResponse(e.getMessage(), ResponseCodes.FAILURE, ResponseCodes.FAILURE_MSG);
 		}

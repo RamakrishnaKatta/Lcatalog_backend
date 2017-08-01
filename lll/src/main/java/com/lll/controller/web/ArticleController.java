@@ -31,10 +31,13 @@ import com.lll.rest.Request;
 import com.lll.rest.Response;
 import com.lll.rest.ResponseCodes;
 import com.lll.util.LLLUtils;
+import org.apache.log4j.Logger;
 
 @RestController
 @RequestMapping("web/article")
 public class ArticleController {
+	
+	private static final Logger LOG = Logger.getLogger(ArticleController.class);
 	
 	@Autowired
 	@Qualifier("Response")
@@ -101,9 +104,32 @@ public class ArticleController {
 		return resp;
 	}
 	
+	@RequestMapping(value="web/all",method=RequestMethod.GET)
+	public Response getAllArticles(){
+		try {
+			List<ArticleDetail> articles=articleRepo.findAll();
+			for(ArticleDetail articleDetail:articles){			
+				articleDetail.setDimension(new Gson().fromJson(articleDetail.getDimensions(), Dimension.class));
+			    articleDetail.setImages(new Gson().fromJson(articleDetail.getImg(), ArticleImages.class));
+			    articleDetail.setDimensions(null);
+			    articleDetail.setImg(null);
+			}
+		    resp.setResp(articles);
+			resp.setMessage(null);
+			resp.setCode(ResponseCodes.SUCCESS);
+		} catch (Exception e) {
+			e.printStackTrace();
+			resp.setResp(e.getMessage());
+			resp.setMessage(ResponseCodes.FAILURE_MSG);
+			resp.setCode(ResponseCodes.FAILURE);
+		}
+		return resp;
+	}
+	
 	@RequestMapping(value="by",method=RequestMethod.GET)
 	public Response getAllArticlesByVendorId(@RequestParam("vendorId") int vendorId){
 		try {
+			LOG.debug("INSIDE GET ARTICLES BY VENDOR");
 			List<ArticleDetail> articles=articleRepo.getArticledetailByVendorId(vendorId);
 			for(ArticleDetail articleDetail:articles){			
 				articleDetail.setDimension(new Gson().fromJson(articleDetail.getDimensions(), Dimension.class));
@@ -115,7 +141,7 @@ public class ArticleController {
 			resp.setMessage(ResponseCodes.SUCCESS_MSG);
 			resp.setCode(ResponseCodes.SUCCESS);
 		} catch (Exception e) {
-			e.printStackTrace();
+			LOG.error("USER EXCEPTION", e);
 			resp.setResp(e.getMessage());
 			resp.setMessage(ResponseCodes.FAILURE_MSG);
 			resp.setCode(ResponseCodes.FAILURE);

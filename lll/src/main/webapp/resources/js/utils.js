@@ -17,13 +17,16 @@ var Urls={
 		GET_ALL_USERS:"web/user/all",
 			
 	    //USERS
-		GET_ALL_ARTICLES:"web/article/all",
+		GET_ALL_ARTICLES:"web/article/web/all",
 		
 		//GET ALL VENDORS REQUEST
 		GET_ALL_VENDORS_REQ:"app/vendor/getVendorRequests",
 		
 		//ADD VENDOR
 		ADD_VENDOR:"web/vendor/vendor_reg",
+		
+		//UPDATE VENDOR
+		UPDATE_VENDOR:"web/vendor/update",
 		
 		//ADD ADMIN
 		ADD_ADMIN:"web/user/register",
@@ -94,7 +97,6 @@ function loadVendorsDropDown(){
 
 
 $("#vendorId").change(function(){
-	
  	var vendorId=$("#vendorId").val();
     $("#uploadedUserId").val(ParseInt(vendorId)+1);
 })

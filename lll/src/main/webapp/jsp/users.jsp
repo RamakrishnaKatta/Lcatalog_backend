@@ -27,9 +27,9 @@
                         
                         <div class="row">
                             <div class="col-md-12">
-                            <div class="form-group">
+                            <div class="form-group rd">
                             <label for="name">Name :</label>
-                            <input type="text" class="form-control" id="name">
+                            <input type="text" class="form-control rd" id="name">
                             </div>
                             </div>
                          </div>
@@ -38,7 +38,7 @@
                             <div class="col-md-12">
                             <div class="form-group">
                             <label for="name">Address :</label>
-                            <input type="text" class="form-control" id="address">
+                            <input type="text" class="form-control rd" id="address">
                             </div>
                             </div>
                          </div>
@@ -47,12 +47,12 @@
                             <div class="col-md-12">
                             <div class="form-group">
                             <label for="name">Email :</label>
-                            <input type="text" class="form-control" id="email">
+                            <input type="text" class="form-control rd" id="email">
                             </div>
                             </div>
                          </div>
                          
-                         <div class="row">
+                         <div class="row pass">
                             <div class="col-md-12">
                             <div class="form-group">
                             <label for="name">Enter Password :</label>
@@ -61,7 +61,7 @@
                             </div>
                          </div>
                          
-                         <div class="row">
+                         <div class="row pass">
                             <div class="col-md-12">
                             <div class="form-group">
                             <label for="name">Re-enter Password :</label>
@@ -76,7 +76,7 @@
                             <div class="col-md-12">
                             <div class="form-group">
                             <label for="name">Phone Number :</label>
-                            <input type="text" class="form-control" id="phNo">
+                            <input type="text" class="form-control rd" id="phNo">
                             </div>
                             </div>
                          </div>
@@ -84,7 +84,7 @@
                             <div class="col-md-12">
                             <div class="form-group">
                             <label for="name">Vendor :</label>
-                            <select class="form-control" id="vendorId">
+                            <select class="form-control rd" id="vendorId">
 							
 							</select>
                             </div>
@@ -94,14 +94,14 @@
                             <div class="col-md-12">
                             <div class="form-group">
                             <label for="name">Other details :</label>
-                            <input type="text" class="form-control" id="otherDetails">
+                            <input type="text" class="form-control rd" id="otherDetails">
                             </div>
                             </div>
                          </div>
                              
                      </div>
                      <div class="modal-footer">
-                        <div type="button" class="btn btn-sm btn-info addAdmin">Add</div>
+                        <div type="button" class="btn btn-sm btn-info save">Add</div>
                         <div type="button" class="btn btn-sm btn-info edit">Edit</div>
                      </div>
                   </div>
@@ -127,7 +127,6 @@
                               <div class="form-group">
                               <h5 class="box-title">Vendor</h5>
 							  <select class="form-control" id="vendorSearch">
-							  <option ng-repeat="x in vendors" value={{x.id}}>{{x.name}}</option>
 							  </select>
 							  </div>
                               </div>

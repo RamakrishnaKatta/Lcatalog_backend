@@ -118,6 +118,7 @@ function loadVendors() {
 			var data = table.row($(this).parents('tr')).data();
 			$("#myUpdateModal").modal();
 			$(".save").hide();
+			$(".edit").show();
 			$("#id_e").val(data.id);
 			$("#name_e").val(data.name);
 			$("#type_e").val(data.type);

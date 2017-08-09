@@ -3,13 +3,6 @@ $(document).ready(function() {
 	loadVendorsDropDown();
 })
 
-app.controller('userSearch', function($scope, $http) {
-	$http.get(getApi(Urls.GET_ALL_VENDORS)).then(function(response) {
-		console.log(response.data);
-		$scope.vendors = response.data.resp;
-	}, httpFailure);
-})
-
 function loadUsers() {
 	showLoader();
 	$
@@ -75,33 +68,50 @@ function loadUsers() {
 													} ]
 
 										})
-										
-										var table = $('#myTable').DataTable();
 
-						$('#myTable tbody').on( 'click', '.viewResult', function () {
-						       var data = table.row( $(this).parents('tr') ).data();
-						       console.log(data);
-						       $("#myModal").modal();
-							   $(".edit").show();
-							   $(".addAdmin").hide();
-							   $(".headerText").text("Update Admin");
-						       // populateForm(rowData);	       
-						}); 
+						var table = $('#myTable').DataTable();
+
+						$('#myTable tbody')
+								.on(
+										'click',
+										'.delBtn',
+										function() {
+											var con = confirm("Do you really want to delete ??");
+											if (con == true) {
+												var data = table.row(
+														$(this).parents('tr'))
+														.data();
+												deleteUser(data.id);
+											}
+										});
+
+						$('#myTable tbody').on(
+								'click',
+								'.viewResult',
+								function() {
+									var data = table.row($(this).parents('tr'))
+											.data();
+									console.log(data);
+									$("#myModal").modal();
+									$(".edit").show();
+									$(".save").hide();
+									$(".headerText").text("Update Admin");
+									$('.rd,.rdStrict').prop('readonly', true); 
+									populateForm(data);
+								});
 
 					})
 
+	$(".showModal").click(function() {
+		$("#myModal").modal();
+		$(".edit").hide();
+		$(".save").hide();
+		$(".headerText").text("Add Admin");
+	})
+
 }
 
-
-
-
-$(".showModal").click(function() {
-	$("#myModal").modal();
-	$(".edit").hide();
-	$(".headerText").text("Add Admin");
-})
-
-$(".addAdmin").click(function() {
+$(".save").click(function() {
 	var name = $("#name").val();
 	var address = $("#address").val();
 	var password = $("#pass2").val();
@@ -156,4 +166,46 @@ function addAdmin(req) {
 
 	})
 
+}
+
+function populateForm(data) {
+
+	$("#name").val(data.name);
+	$("#address").val(data.address);
+	$("#vendorId").val(data.vendorId);
+	$("#email").val(data.email);
+	$(".pass").hide();
+	$("#phNo").val(data.mobileNo);
+	$("#vendorId").val(data.vendorId);
+	$("#otherDetails").val(data.otherDetails);
+
+}
+
+$(".edit").click(function(){
+	$(".save").show();
+	$(".edit").hide();
+	$('.rd').prop('readonly', false);
+})
+
+
+function deleteUser(id) {
+	showLoader();
+	$.ajax({
+		type : "GET",
+		contentType : 'application/json; charset=utf-8',
+		dataType : 'json',
+		url : getApi(Urls.DEL_USER) + id
+	}).done(function(response) {
+		hideLoader();
+		if (response.code == 200) {
+			alert("User deleted");
+			location.reload();
+		} else {
+			alert("Opps Something Went Wrong");
+		}
+
+	}).fail(function(jqXHR, textStatus, errorThrown) {
+		alert("Opps something went wrong");
+		hideLoader();
+	})
 }

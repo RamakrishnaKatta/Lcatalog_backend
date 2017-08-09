@@ -31,6 +31,9 @@ var Urls={
 		//ADD ADMIN
 		ADD_ADMIN:"web/user/register",
 		
+		//DEL USER
+		DEL_USER:"web/user/delete?id=",
+		
 		//ADD ARTICLE
 		ADD_ARTICLE:"web/article/add_article",
 		
@@ -91,6 +94,7 @@ function loadVendorsDropDown(){
         }
         $("#vendorId").append(options);
         $("#vendorIdU").append(options);
+        $("#vendorSearch").append(options);
     }
     })
 }

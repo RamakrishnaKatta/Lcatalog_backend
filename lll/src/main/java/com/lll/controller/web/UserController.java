@@ -89,8 +89,8 @@ public class UserController {
 					 userdetail.setId(vendorDetail.getId()+1);
 					 userdetail.setCreatedTime(new Timestamp(System.currentTimeMillis()));
 					 userdetail.setPassword(LLLUtils.getEncodedPassword(request.getRequest().getPassword()));
-					 //boolean b=sendOtp();
-					 //boolean b=sendMail();
+					 //boolean b=isOtpSent();
+					 //boolean b=isMailSent();
 					 userRepo.save(userdetail);	
 					 resp.setResp(null);
 					 resp.setMessage(ResponseCodes.SUCCESS_MSG);
@@ -137,6 +137,18 @@ public class UserController {
 			e.printStackTrace();
 			return Response.getInstance().setResponse(e.getMessage(), ResponseCodes.FAILURE, ResponseCodes.FAILURE_MSG);
 		}
+	}
+	
+	@RequestMapping(value="delete",method=RequestMethod.GET)
+	public Response deleteUser(@RequestParam("id") int id){
+		try {
+			userRepo.delete(id);
+		    return	Response.getInstance().setResponse(null, ResponseCodes.SUCCESS, ResponseCodes.SUCCESS_MSG);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return Response.getInstance().setResponse(e.getMessage(), ResponseCodes.FAILURE, ResponseCodes.FAILURE_MSG);
+		}
+		
 	}
 
 }

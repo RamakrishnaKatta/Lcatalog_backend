@@ -24,7 +24,7 @@
                         <h4 class="modal-title"><b class="headerText">Add Admin</b></h4>
                      </div>
                      <div class="modal-body">
-                        
+                        <input type="hidden" id="id">
                         <div class="row">
                             <div class="col-md-12">
                             <div class="form-group rd">
@@ -101,8 +101,9 @@
                              
                      </div>
                      <div class="modal-footer">
-                        <div type="button" class="btn btn-sm btn-info save">Add</div>
+                        <div type="button" class="btn btn-sm btn-info add">Add</div>
                         <div type="button" class="btn btn-sm btn-info edit">Edit</div>
+                        <div type="button" class="btn btn-sm btn-info update">save</div>
                      </div>
                   </div>
                </div></div>

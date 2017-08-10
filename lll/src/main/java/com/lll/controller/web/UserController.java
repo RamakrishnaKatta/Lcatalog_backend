@@ -139,6 +139,21 @@ public class UserController {
 		}
 	}
 	
+	@RequestMapping(value="update",method=RequestMethod.POST)
+	public Response updateUser(@RequestBody Request<UserDetail> request){
+		try {
+			System.out.println("LLL-REQUEST : "+new Gson().toJson(request));
+			UserDetail ud=userRepo.findOne(request.getRequest().getId());
+			System.out.println("USER-DETAILS : "+new Gson().toJson(ud));
+			request.getRequest().setPassword(ud.getPassword());
+			userRepo.save(request.getRequest());
+		    return	Response.getInstance().setResponse(null, ResponseCodes.SUCCESS, ResponseCodes.SUCCESS_MSG);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return Response.getInstance().setResponse(e.getMessage(), ResponseCodes.FAILURE, ResponseCodes.FAILURE_MSG);
+		}
+	}
+	
 	@RequestMapping(value="delete",method=RequestMethod.GET)
 	public Response deleteUser(@RequestParam("id") int id){
 		try {

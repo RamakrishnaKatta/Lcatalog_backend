@@ -94,7 +94,8 @@ function loadUsers() {
 									console.log(data);
 									$("#myModal").modal();
 									$(".edit").show();
-									$(".save").hide();
+									$(".add").hide();
+									$(".update").hide();
 									$(".headerText").text("Update Admin");
 									$('.rd,.rdStrict').prop('readonly', true); 
 									populateForm(data);
@@ -105,13 +106,47 @@ function loadUsers() {
 	$(".showModal").click(function() {
 		$("#myModal").modal();
 		$(".edit").hide();
-		$(".save").hide();
+		$(".update").hide();
+		$(".add").show();
 		$(".headerText").text("Add Admin");
 	})
 
 }
 
-$(".save").click(function() {
+
+$(".update").click(function() {
+	
+	var name = $("#name").val();
+	var address = $("#address").val();
+	var password = $("#pass2").val();
+	var vendorId = $("#vendorId").val();
+	var email = $("#email").val();
+	var phNo = $("#phNo").val();
+	var otherDetails = $("#otherDetails").val();
+    var id = $("#id").val();
+    
+		var req = {
+			"request" : {
+			    "id" : id,
+				"email" : email,
+				"vendorId" : vendorId,
+				"name" : name,
+				"type" : "ADMIN",
+				"address" : address,
+				"mobileNo" : phNo,
+				"otherDetails" : otherDetails
+			}
+		}
+		
+		updateAdmin(req)
+	
+
+})
+
+
+
+$(".add").click(function() {
+	
 	var name = $("#name").val();
 	var address = $("#address").val();
 	var password = $("#pass2").val();
@@ -119,7 +154,6 @@ $(".save").click(function() {
 	var email = $("#email").val();
 	var pass1 = $("#pass1").val();
 	var pass2 = $("#pass2").val();
-
 	var phNo = $("#phNo").val();
 	var otherDetails = $("#otherDetails").val();
 
@@ -142,6 +176,29 @@ $(".save").click(function() {
 	}
 
 })
+
+
+function updateAdmin(req) {
+	console.log(JSON.stringify(req));
+	$.ajax({
+		type : "POST",
+		data : JSON.stringify(req),
+		contentType : 'application/json; charset=utf-8',
+		dataType : 'json',
+		url : getApi(Urls.UPDATE_ADMIN),
+	}).done(function(response) {
+		console.log(response);
+		if (response.code == "200") {
+			alert("Updated");
+			location.reload();
+		} else {
+			alert("Oops something went wrong");
+			location.reload();
+		}
+
+	})
+
+}
 
 function addAdmin(req) {
 	console.log(JSON.stringify(req));
@@ -170,6 +227,7 @@ function addAdmin(req) {
 
 function populateForm(data) {
 
+	$("#id").val(data.id);
 	$("#name").val(data.name);
 	$("#address").val(data.address);
 	$("#vendorId").val(data.vendorId);
@@ -182,8 +240,9 @@ function populateForm(data) {
 }
 
 $(".edit").click(function(){
-	$(".save").show();
+	$(".add").hide();
 	$(".edit").hide();
+	$(".update").show();
 	$('.rd').prop('readonly', false);
 })
 

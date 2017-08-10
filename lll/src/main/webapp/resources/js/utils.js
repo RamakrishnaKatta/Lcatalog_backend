@@ -31,6 +31,9 @@ var Urls={
 		//ADD ADMIN
 		ADD_ADMIN:"web/user/register",
 		
+		//UPDATE ADMIN
+		UPDATE_ADMIN:"web/user/update",
+		
 		//DEL USER
 		DEL_USER:"web/user/delete?id=",
 		

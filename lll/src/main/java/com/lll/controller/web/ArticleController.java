@@ -57,6 +57,7 @@ public class ArticleController {
 	public Response updateArticle(@RequestBody Request<ArticleDetail> req){
 		try {
 			ArticleDetail ad=articleRepo.findOne(req.getRequest().getId());
+			ad.setName(req.getRequest().getName());
 			ad.setCategory(req.getRequest().getCategory());
 			ad.setTitle(req.getRequest().getTitle());
 			ad.setSub_category(req.getRequest().getSub_category());

@@ -1,14 +1,23 @@
-# This is a sample build configuration for Java (Maven).
+# This is a sample build configuration for Java – Maven.
 # Check our guides at https://confluence.atlassian.com/x/zd-5Mw for more examples.
 # Only use spaces to indent your .yml configuration.
 # -----
 # You can specify a custom docker image from Docker Hub as your build environment.
-image: maven:3.3.9
+image: maven:3.3.9-jdk-7
 
 pipelines:
   default:
     - step:
         caches:
-          - maven
-        script: # Modify the commands below to build your repository.
-          - mvn -B verify # -B batch mode makes Maven less verbose
+          - maven	
+        script: # Modify the commands below to build your repository
+         - apt-get update && apt-get install -y python-dev
+         - curl -O https://bootstrap.pypa.io/get-pip.py
+         - python get-pip.py
+         - pip install awscli
+         - mvn -f lll/pom.xml -B verify # -B batch mode makes Maven less verbose 
+         - export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
+         - export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
+         - export AWS_DEFAULT_REGION=ap-south-1
+         - aws deploy push --application-name Backend --s3-location s3://samplel/lll --ignore-hidden-files
+         - aws deploy create-deployment --application-name Backend --s3-location bucket=samplel,key=lll,bundleType=zip --deployment-group-name Bitbucket

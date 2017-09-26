@@ -20,4 +20,4 @@ pipelines:
          - export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
          - export AWS_DEFAULT_REGION=ap-south-1
          - aws deploy push --application-name Backend --s3-location s3://samplel/lll --ignore-hidden-files
-        # - aws deploy create-deployment --application-name Backend --s3-location bucket=samplel,key=lll,bundleType=zip --deployment-group-name Bitbucket
+         - aws deploy create-deployment --application-name Backend --s3-location bucket=samplel,key=lll,bundleType=zip --deployment-group-name Bitbucket

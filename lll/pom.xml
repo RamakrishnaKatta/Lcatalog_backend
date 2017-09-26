@@ -259,7 +259,8 @@
 							</configuration>
 						</execution>
 					</executions>
-				</plugin>			
+				</plugin>		
+			<!-- after disabling this plugin war file is working -->	
 		   <!-- <plugin>
 				<artifactId>maven-war-plugin</artifactId>
 				<version>2.4</version>

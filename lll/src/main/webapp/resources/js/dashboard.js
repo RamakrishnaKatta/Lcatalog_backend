@@ -12,7 +12,7 @@ $(document).ready(function(){
 	
 	var options1 = {
 			title: {
-				text: "LLL Analytics"
+				text: "L Catalog Analytics"
 			},
 	                animationEnabled: true,
 			data: [

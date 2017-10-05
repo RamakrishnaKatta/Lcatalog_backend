@@ -103,7 +103,7 @@
       </li>
       
       <li class="treeview">
-        <a href="http://lucidleanlabs.com">
+        <a href="http://www.immersionslabs.com">
           <i class="glyphicon glyphicon-question-sign"></i>
           <span>About Us</span>
         </a>

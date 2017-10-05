@@ -96,7 +96,7 @@ function loadVendors() {
 														"mData" : "id",
 														"mRender" : function(
 																data, type, row) {
-															return "<button class= 'glyphicon glyphicon-trash delBtn btn btn-default' title='Delete Route'><button class='glyphicon glyphicon-zoom-in viewResult btn btn-default' title='View Results'></button>";
+															return "<button class= 'glyphicon glyphicon-trash delBtn btn btn-default' title='Delete Route'><button class='glyphicon glyphicon-edit viewResult btn btn-default' title='View Results'></button>";
 														}
 													} ]
 										})

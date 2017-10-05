@@ -77,7 +77,7 @@ span.psw {
 <body>
 <br>
 <br>
-<h2 class="title">Lucid Lean Labs Panel</h2>
+<h2 class="title">Immersion Software Labs Pvt. Ltd</h2>
 <script type="text/javascript" src="dashboard"></script>
 <form name='f' action="login" method='POST'>
   <div class="imgcontainer">

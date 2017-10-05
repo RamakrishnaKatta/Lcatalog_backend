@@ -116,7 +116,7 @@
             </span>
             <!-- logo for regular state and mobile devices -->
             <span class="logo-lg">
-            <b>Lucid Lean Labs</b>
+            <b>ImmersionSLabs</b>
             </span>
          </a>
          <!-- Header Navbar: style can be found in header.less -->

@@ -108,9 +108,24 @@
           <span>About Us</span>
         </a>
       </li>
-     
     </ul>
   </section>
+  
+  <div class="share" style="position: absolute;
+    bottom: 5px;
+    left:85px;
+    font-size: 20px;">
+  <a href="https://www.facebook.com/immersionslabs/">
+  <i class="fa fa-facebook" aria-hidden="true"></i>
+  </a>
+  <a href="https://plus.google.com/114976807788097353131">
+  <i class="fa fa-google-plus" aria-hidden="true"></i>
+  </a>
+  <a href="https://twitter.com/immersionslabs">
+  <i class="fa fa-twitter" aria-hidden="true"></i>
+  </a>
+  </div>
+  
   <!-- /.sidebar -->
 </aside>
 

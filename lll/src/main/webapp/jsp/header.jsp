@@ -109,7 +109,7 @@
    <body class="sidebar-mini skin-blue" style="position:relative;">
       <c:set var="host" value="${pageContext.request.contextPath}"></c:set>
       <header class="main-header">
-         <a href="/bind/dashboard" class="logo">
+         <a href="http://www.immersionslabs.com" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini">
             <b>LLL</b>

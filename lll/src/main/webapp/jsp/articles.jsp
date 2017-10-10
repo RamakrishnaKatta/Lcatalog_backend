@@ -53,7 +53,7 @@
                          <div class="row">
                             <div class="col-md-12">
                             <div class="form-group">
-                            <label for="name">Sub Category :</label>
+                            <label for="name">SubCategory :</label>
                             <input type="text" class="form-control"  name="sub_category" id="sub_category">
                             </div>
                             </div>

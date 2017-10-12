@@ -32,7 +32,7 @@
 							<div class="row">
 								<div class="col-md-12">
 									<div class="form-group">
-										<label for="name">Id :</label> <input type="text"
+										<label for="name">Vendor Id :</label> <input type="text"
 											class="form-control" name="id" id="id">
 									</div>
 								</div>
@@ -57,7 +57,7 @@
 							<div class="row">
 								<div class="col-md-12">
 									<div class="form-group">
-										<label for="name">Code :</label> <input type="text"
+										<label for="name">Location :</label> <input type="text"
 											class="form-control" name="code" id="code">
 									</div>
 								</div>
@@ -66,7 +66,7 @@
 							<div class="row">
 								<div class="col-md-12">
 									<div class="form-group">
-										<label for="name">Logo :</label> <input type="file"
+										<label for="name">Company Logo :</label> <input type="file"
 											class="form-control" name="file" id="file">
 									</div>
 								</div>

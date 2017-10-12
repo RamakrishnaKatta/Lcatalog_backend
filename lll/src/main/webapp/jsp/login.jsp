@@ -11,7 +11,7 @@
   font-size: 30px;
 }
 body{
-    background-color:#cecfd0;
+    background-color:#A6ACAF   ;
 }
 form {
    padding: 0% 30%;
@@ -27,8 +27,11 @@ input[type=text], input[type=password],input[type=submit]{
     color: black;   
 }
 input[type=submit]{
-background-color: #3c8dbc !important;
+background-color: #004D40 !important;
 color: #fff;
+border-radius: 25px;
+
+
 }
 button {
     background-color: #4CAF50;
@@ -62,6 +65,18 @@ span.psw {
     float: right;
     padding-top: 16px;
 }
+.center{
+    color: #004d40;
+    text-align: center;
+}
+.cmpylogo{
+
+    display: block;
+    margin: auto;
+    width: 40%;
+
+}
+
 
 /* Change styles for span and cancel button on extra small screens */
 @media screen and (max-width: 300px) {
@@ -77,7 +92,12 @@ span.psw {
 <body>
 <br>
 <br>
-<h2 class="title">Immersion Software Labs Pvt. Ltd</h2>
+<img class="cmpylogo" src="resources/img/logo.png" height="120" width="690">
+
+<br><br>
+
+<h2 class="center">Enter Admin Details</h2>
+
 <script type="text/javascript" src="dashboard"></script>
 <form name='f' action="login" method='POST'>
   <div class="imgcontainer">
@@ -85,10 +105,10 @@ span.psw {
 
   <div class="container">
     <!-- <label><b class="fonts">Username</b></label> -->
-    <input type='text'  placeholder="Enter username" name='username' value='' required>
+    <input type='text'  placeholder="Enter UserName" name='username' value='' required>
 
     <!-- <label><b class="fonts">Password</b></label> -->
-    <input type='password' name='password' placeholder="Enter password"  required/>
+    <input type='password' name='password' placeholder="Enter Password"  required/>
        
     <input name="submit" type="submit" value="Login" />
   </div>

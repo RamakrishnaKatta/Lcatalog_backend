@@ -29,7 +29,7 @@ function uploadFile(formData) {
 						alert("Vendor Added");
 						location.reload();
 					} else {
-						alert("Some error occurred while uploading material. Please try again");
+						alert("Some Error While Adding Vendor Details. Please Check the Fields Entered Details and try again");
 					}
 				},
 				error : function(xhr, status, error) {

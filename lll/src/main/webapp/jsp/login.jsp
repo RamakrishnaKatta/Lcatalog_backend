@@ -105,10 +105,10 @@ span.psw {
 
   <div class="container">
     <!-- <label><b class="fonts">Username</b></label> -->
-    <input type='text'  placeholder="Enter UserName" name='username' value='' required>
+    <input type='text'  placeholder="UserName" name='username' value='' required>
 
     <!-- <label><b class="fonts">Password</b></label> -->
-    <input type='password' name='password' placeholder="Enter Password"  required/>
+    <input type='password' name='password' placeholder="Password"  required/>
        
     <input name="submit" type="submit" value="Login" />
   </div>

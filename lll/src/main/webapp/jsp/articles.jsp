@@ -109,19 +109,12 @@
                             </div>
                          </div>
                          
-                         <div class="row">
-                            <div class="col-md-12">
-                            <div class="form-group">
-                            <label for="name">Uploaded User Id :</label>
-                            <input type="number" class="form-control"  readonly="true"  name="uploadedUserId" id="uploadedUserId">
-                            </div>
-                            </div>
-                         </div>
+                        
                          
                          <div class="row">
                             <div class="col-md-12">
                             <div class="form-group">
-                            <label for="name">Upload Object:</label>
+                            <label for="name">Upload 3DS File (3D View):</label>
 							<input type="file" class="form-control" name="objFile" id="objFile">
                             </div>
                             </div>

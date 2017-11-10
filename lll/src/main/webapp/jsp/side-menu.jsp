@@ -111,8 +111,9 @@
     </ul>
   </section>
   
+  
   <div class="share" style="position: absolute;
-    bottom: 5px;
+    bottom: 50px;
     left:85px;
     font-size: 20px;">
   <a href="https://www.facebook.com/immersionslabs/">
@@ -123,7 +124,13 @@
   </a>
   <a href="https://twitter.com/immersionslabs">
   <i class="fa fa-twitter" aria-hidden="true"></i>
+  
   </a>
+  
+  </div>
+ 
+  <div class="versions" style="position: absolute;bottom: 10px;left:55px" color: "green";>
+  <span>Version 1.0-10-11-17</span>
   </div>
   
   <!-- /.sidebar -->
